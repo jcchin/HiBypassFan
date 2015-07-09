@@ -39,14 +39,14 @@ setThermoPackage("$THERMO");
 //setThermoPackage( "Janaf", "thermo.inp", "trans.inp", "Air", "H2O", "Jet-A(L)" );
 
 //default includes
-#include "nasa.view"           //default page viewer
+#include "view/nasa.view"           //default page viewer
 #include "bleed_macros.fnc"   //bleed macros
 
 //local includes
-#include "Transient.view"     //transient viewer
+#include "view/Transient.view"     //transient viewer
 
 //model file
-#include "fanjet.mdl"
+#include "src/fanjet.mdl"
 
 // run the model case input files
-#include "desOD.case"
+#include "src/desOD.case"

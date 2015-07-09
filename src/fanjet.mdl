@@ -80,7 +80,7 @@ Element Compressor Fan {
   // This plugs the CompressorRline subelement into S_map socket, 
   // defines S_map tables TB_eff, TB_PR, TB_Wc, and sets values 
   // for S_map.alphaMapDes, S_map.RlineMapDes, and S_map.NcMapDes
-  #include "maps/Fan_DD.map";
+  #include "maps/GTmaps/Fan_DD.map";
   PRdes  = 1.765;
   effDes= 0.9313;
   Sh_O.inertia = 10.;     // slugs-ft**2.
@@ -146,7 +146,7 @@ Element Compressor CmpL {
   // This plugs the CompressorRline subelement into S_map socket, 
   // defines S_map tables TB_eff, TB_PR, TB_Wc, and sets values 
   // for S_map.alphaMapDes, S_map.RlineMapDes, and S_map.NcMapDes
-  #include "maps/LPC_DD.map";
+  #include "maps/GTmaps/LPC_DD.map";
   PRdes  = 1.914;
   effDes = 0.9313;
   Sh_O.inertia = 10.;     // slugs-ft**2.
@@ -182,7 +182,7 @@ Element Compressor CmpH {
   // This plugs the CompressorRline subelement into S_map socket, 
   // defines S_map tables TB_eff, TB_PR, TB_Wc, and sets values 
   // for S_map.alphaMapDes, S_map.RlineMapDes, and S_map.NcMapDes
-  #include "maps/HPC_DD.map";
+  #include "maps/GTmaps/HPC_DD.map";
   PRdes  = 9.666;
   effDes= 0.8765;
   Sh_O.inertia = 10.;     // slugs-ft**2.
@@ -365,7 +365,7 @@ Element TurbineTwo TrbH {
   // This plugs the TurbinePRmap2 subelement into S_map socket, 
   // defines S_map tables TB_eff and TB_Wp, and sets values 
   // for S_map.PRmapDes and S_map.NpMapDes
-  #include "maps/HPT.map";
+  #include "maps/GTmaps/HPT.map";
   PRbase = 4.984; // pressure ratio initial guess
   effDes = 0.88;
   
@@ -411,7 +411,7 @@ Element TurbineTwo TrbL {
   // This plugs the TurbinePRmap2 subelement into S_map socket, 
   // defines S_map tables TB_eff and TB_Wp, and sets values 
   // for S_map.PRmapDes and S_map.NpMapDes
-  #include "maps/LPT.map";
+  #include "maps/GTmaps/LPT.map";
   PRbase = 4.2915; // pressure ratio initial guess
   effDes = 0.9232;
 } //END TrbL
@@ -485,7 +485,7 @@ Element EngPerf Perf {
 // ------------------------------
 //      Controls
 // ------------------------------
-#include "controls.cmp"
+#include "src/controls.cmp"
 
 
 // -------------------------------

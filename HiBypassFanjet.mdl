@@ -42,11 +42,11 @@ setThermoPackage("$THERMO");
 #include <bleed_macros.fnc>   //bleed macros
 
 //local includes
-#include "nasa.view"          //page viewer
-#include "Transient.view"     //transient viewer
+#include "view/nasa.view"          //page viewer
+#include "view/Transient.view"     //transient viewer
 
 //model file
-#include "fanjet.mdl"
+#include "src/fanjet.mdl"
 
 //case input files
-//#include "desOD.case"
+//#include "src/desOD.case"

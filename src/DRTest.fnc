@@ -37,7 +37,7 @@
 void RunPoint(){
 
  solver.debugLevel = "ITERATION_DETAILS";
- solver.diagnosticFile = "solver.DR1";
+ solver.diagnosticFile = "output/solver.DR1";
 //  Routine to run the model and update TEST and viewers
  TEST = TEST + 10000;
  run();

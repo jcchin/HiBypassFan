@@ -372,7 +372,7 @@ else {
 
 solver.maxIterations = 200;
 int TEST = 0;
-#include "DRTest.fnc"
+#include "src/DRTest.fnc"
 
 
 PAMBSE.switchSolverActive =  "Predicted";
@@ -393,8 +393,8 @@ string test = "DB.TEST";
 // DB Element info
 // Look for DB files in typical places.
 // (the current directory isn't always correct)
-string fName="DRTestDataNames.dbn";
-string fData="DRTestData.inp";
+string fName="input/DRTestDataNames.dbn";
+string fData="inputDRTestData.inp";
 
 if (cin.fileExists(fName)) {
 DB.F_Name = fName;

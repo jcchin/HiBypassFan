@@ -1,6 +1,6 @@
 *******************************************************************************                                                                 
 NCP                   NPSS_2.7.1    model:         fanjet     run by:       jcchin    solutionMode= STEADY_STATE    converge=    1    case:    1
-time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy= 12/ 14/ 1/10     run: 07/09/15 18:14:36
+time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy= 12/ 14/ 1/10     run: 07/09/15 19:16:33
                                                                                                                                                 
                         Summary Output Data                                                                                                     
     MN       alt    dTs        W        Fg        Fn     SFC       Wfuel      WAR      OPR                                                      
@@ -80,7 +80,7 @@ CmpH             10.00
 
 *******************************************************************************                                                                 
 NCP                   NPSS_2.7.1    model:         fanjet     run by:       jcchin    solutionMode= STEADY_STATE    converge=    1    case:    2
-time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  1/  1/ 0/ 0     run: 07/09/15 18:14:36
+time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  1/  1/ 0/ 0     run: 07/09/15 19:16:33
                                                                                                                                                 
                         Summary Output Data                                                                                                     
     MN       alt    dTs        W        Fg        Fn     SFC       Wfuel      WAR      OPR                                                      
@@ -160,7 +160,7 @@ CmpH             10.00
 
 *******************************************************************************                                                                 
 NCP                   NPSS_2.7.1    model:         fanjet     run by:       jcchin    solutionMode= STEADY_STATE    converge=    1    case:    2
-time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  5/ 25/ 2/ 2     run: 07/09/15 18:14:36
+time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  5/ 25/ 2/ 2     run: 07/09/15 19:16:33
                                                                                                                                                 
                         Summary Output Data                                                                                                     
     MN       alt    dTs        W        Fg        Fn     SFC       Wfuel      WAR      OPR                                                      
@@ -240,7 +240,7 @@ CmpH             10.00
 
 *******************************************************************************                                                                 
 NCP                   NPSS_2.7.1    model:         fanjet     run by:       jcchin    solutionMode= STEADY_STATE    converge=    1    case:    2
-time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  8/ 18/ 1/ 5     run: 07/09/15 18:14:36
+time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  8/ 18/ 1/ 5     run: 07/09/15 19:16:33
                                                                                                                                                 
                         Summary Output Data                                                                                                     
     MN       alt    dTs        W        Fg        Fn     SFC       Wfuel      WAR      OPR                                                      
@@ -320,7 +320,7 @@ CmpH             10.00
 
 *******************************************************************************                                                                 
 NCP                   NPSS_2.7.1    model:         fanjet     run by:       jcchin    solutionMode= STEADY_STATE    converge=    1    case:    2
-time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  7/  7/ 0/ 5     run: 07/09/15 18:14:36
+time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  7/  7/ 0/ 5     run: 07/09/15 19:16:33
                                                                                                                                                 
                         Summary Output Data                                                                                                     
     MN       alt    dTs        W        Fg        Fn     SFC       Wfuel      WAR      OPR                                                      
@@ -400,7 +400,7 @@ CmpH             10.00
 
 *******************************************************************************                                                                 
 NCP                   NPSS_2.7.1    model:         fanjet     run by:       jcchin    solutionMode= STEADY_STATE    converge=    1    case:    2
-time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  7/  7/ 0/ 5     run: 07/09/15 18:14:36
+time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  7/  7/ 0/ 5     run: 07/09/15 19:16:33
                                                                                                                                                 
                         Summary Output Data                                                                                                     
     MN       alt    dTs        W        Fg        Fn     SFC       Wfuel      WAR      OPR                                                      
@@ -480,7 +480,7 @@ CmpH             10.00
 
 *******************************************************************************                                                                 
 NCP                   NPSS_2.7.1    model:         fanjet     run by:       jcchin    solutionMode= STEADY_STATE    converge=    1    case:    2
-time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  1/  1/ 0/ 0     run: 07/09/15 18:14:36
+time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  1/  1/ 0/ 0     run: 07/09/15 19:16:33
                                                                                                                                                 
                         Summary Output Data                                                                                                     
     MN       alt    dTs        W        Fg        Fn     SFC       Wfuel      WAR      OPR                                                      
@@ -560,7 +560,7 @@ CmpH             10.00
 
 *******************************************************************************                                                                 
 NCP                   NPSS_2.7.1    model:         fanjet     run by:       jcchin    solutionMode= STEADY_STATE    converge=    1    case:    2
-time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  7/  7/ 0/ 5     run: 07/09/15 18:14:36
+time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  7/  7/ 0/ 5     run: 07/09/15 19:16:33
                                                                                                                                                 
                         Summary Output Data                                                                                                     
     MN       alt    dTs        W        Fg        Fn     SFC       Wfuel      WAR      OPR                                                      
@@ -640,7 +640,7 @@ CmpH             10.00
 
 *******************************************************************************                                                                 
 NCP                   NPSS_2.7.1    model:         fanjet     run by:       jcchin    solutionMode= STEADY_STATE    converge=    1    case:    2
-time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  6/  6/ 0/ 4     run: 07/09/15 18:14:36
+time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  6/  6/ 0/ 4     run: 07/09/15 19:16:33
                                                                                                                                                 
                         Summary Output Data                                                                                                     
     MN       alt    dTs        W        Fg        Fn     SFC       Wfuel      WAR      OPR                                                      
@@ -720,7 +720,7 @@ CmpH             10.00
 
 *******************************************************************************                                                                 
 NCP                   NPSS_2.7.1    model:         fanjet     run by:       jcchin    solutionMode= STEADY_STATE    converge=    1    case:    2
-time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy= 10/ 20/ 1/ 7     run: 07/09/15 18:14:36
+time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy= 10/ 20/ 1/ 7     run: 07/09/15 19:16:33
                                                                                                                                                 
                         Summary Output Data                                                                                                     
     MN       alt    dTs        W        Fg        Fn     SFC       Wfuel      WAR      OPR                                                      
@@ -800,7 +800,7 @@ CmpH             10.00
 
 *******************************************************************************                                                                 
 NCP                   NPSS_2.7.1    model:         fanjet     run by:       jcchin    solutionMode= STEADY_STATE    converge=    1    case:    2
-time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  3/  3/ 0/ 1     run: 07/09/15 18:14:36
+time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  3/  3/ 0/ 1     run: 07/09/15 19:16:33
                                                                                                                                                 
                         Summary Output Data                                                                                                     
     MN       alt    dTs        W        Fg        Fn     SFC       Wfuel      WAR      OPR                                                      
@@ -880,7 +880,7 @@ CmpH             10.00
 
 *******************************************************************************                                                                 
 NCP                   NPSS_2.7.1    model:         fanjet     run by:       jcchin    solutionMode= STEADY_STATE    converge=    1    case:    2
-time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  9/  9/ 0/ 7     run: 07/09/15 18:14:36
+time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  9/  9/ 0/ 7     run: 07/09/15 19:16:33
                                                                                                                                                 
                         Summary Output Data                                                                                                     
     MN       alt    dTs        W        Fg        Fn     SFC       Wfuel      WAR      OPR                                                      
@@ -960,7 +960,7 @@ CmpH             10.00
 
 *******************************************************************************                                                                 
 NCP                   NPSS_2.7.1    model:         fanjet     run by:       jcchin    solutionMode= STEADY_STATE    converge=    1    case:    2
-time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  8/ 18/ 1/ 5     run: 07/09/15 18:14:36
+time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  8/ 18/ 1/ 5     run: 07/09/15 19:16:33
                                                                                                                                                 
                         Summary Output Data                                                                                                     
     MN       alt    dTs        W        Fg        Fn     SFC       Wfuel      WAR      OPR                                                      
@@ -1040,7 +1040,7 @@ CmpH             10.00
 
 *******************************************************************************                                                                 
 NCP                   NPSS_2.7.1    model:         fanjet     run by:       jcchin    solutionMode= STEADY_STATE    converge=    1    case:    2
-time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  6/  6/ 0/ 4     run: 07/09/15 18:14:36
+time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  6/  6/ 0/ 4     run: 07/09/15 19:16:33
                                                                                                                                                 
                         Summary Output Data                                                                                                     
     MN       alt    dTs        W        Fg        Fn     SFC       Wfuel      WAR      OPR                                                      
@@ -1120,7 +1120,7 @@ CmpH             10.00
 
 *******************************************************************************                                                                 
 NCP                   NPSS_2.7.1    model:         fanjet     run by:       jcchin    solutionMode= STEADY_STATE    converge=    1    case:    2
-time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  1/  1/ 0/ 0     run: 07/09/15 18:14:36
+time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  1/  1/ 0/ 0     run: 07/09/15 19:16:33
                                                                                                                                                 
                         Summary Output Data                                                                                                     
     MN       alt    dTs        W        Fg        Fn     SFC       Wfuel      WAR      OPR                                                      
@@ -1200,7 +1200,7 @@ CmpH             10.00
 
 *******************************************************************************                                                                 
 NCP                   NPSS_2.7.1    model:         fanjet     run by:       jcchin    solutionMode= STEADY_STATE    converge=    1    case:    2
-time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  6/  6/ 0/ 4     run: 07/09/15 18:14:36
+time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  6/  6/ 0/ 4     run: 07/09/15 19:16:33
                                                                                                                                                 
                         Summary Output Data                                                                                                     
     MN       alt    dTs        W        Fg        Fn     SFC       Wfuel      WAR      OPR                                                      
@@ -1280,7 +1280,7 @@ CmpH             10.00
 
 *******************************************************************************                                                                 
 NCP                   NPSS_2.7.1    model:         fanjet     run by:       jcchin    solutionMode= STEADY_STATE    converge=    1    case:    2
-time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  7/  7/ 0/ 5     run: 07/09/15 18:14:36
+time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  7/  7/ 0/ 5     run: 07/09/15 19:16:33
                                                                                                                                                 
                         Summary Output Data                                                                                                     
     MN       alt    dTs        W        Fg        Fn     SFC       Wfuel      WAR      OPR                                                      
@@ -1360,7 +1360,7 @@ CmpH             10.00
 
 *******************************************************************************                                                                 
 NCP                   NPSS_2.7.1    model:         fanjet     run by:       jcchin    solutionMode= STEADY_STATE    converge=    1    case:    2
-time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy= 13/ 23/ 1/10     run: 07/09/15 18:14:36
+time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy= 13/ 23/ 1/10     run: 07/09/15 19:16:33
                                                                                                                                                 
                         Summary Output Data                                                                                                     
     MN       alt    dTs        W        Fg        Fn     SFC       Wfuel      WAR      OPR                                                      
@@ -1440,7 +1440,7 @@ CmpH             10.00
 
 *******************************************************************************                                                                 
 NCP                   NPSS_2.7.1    model:         fanjet     run by:       jcchin    solutionMode= STEADY_STATE    converge=    1    case:    2
-time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  4/  4/ 0/ 2     run: 07/09/15 18:14:36
+time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  4/  4/ 0/ 2     run: 07/09/15 19:16:33
                                                                                                                                                 
                         Summary Output Data                                                                                                     
     MN       alt    dTs        W        Fg        Fn     SFC       Wfuel      WAR      OPR                                                      
@@ -1520,7 +1520,7 @@ CmpH             10.00
 
 *******************************************************************************                                                                 
 NCP                   NPSS_2.7.1    model:         fanjet     run by:       jcchin    solutionMode= STEADY_STATE    converge=    1    case:    2
-time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy= 10/ 10/ 0/ 8     run: 07/09/15 18:14:36
+time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy= 10/ 10/ 0/ 8     run: 07/09/15 19:16:33
                                                                                                                                                 
                         Summary Output Data                                                                                                     
     MN       alt    dTs        W        Fg        Fn     SFC       Wfuel      WAR      OPR                                                      
@@ -1600,7 +1600,7 @@ CmpH             10.00
 
 *******************************************************************************                                                                 
 NCP                   NPSS_2.7.1    model:         fanjet     run by:       jcchin    solutionMode= STEADY_STATE    converge=    1    case:    2
-time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  8/ 18/ 1/ 5     run: 07/09/15 18:14:36
+time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  8/ 18/ 1/ 5     run: 07/09/15 19:16:33
                                                                                                                                                 
                         Summary Output Data                                                                                                     
     MN       alt    dTs        W        Fg        Fn     SFC       Wfuel      WAR      OPR                                                      
@@ -1680,7 +1680,7 @@ CmpH             10.00
 
 *******************************************************************************                                                                 
 NCP                   NPSS_2.7.1    model:         fanjet     run by:       jcchin    solutionMode= STEADY_STATE    converge=    1    case:    2
-time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  6/  6/ 0/ 4     run: 07/09/15 18:14:36
+time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  6/  6/ 0/ 4     run: 07/09/15 19:16:33
                                                                                                                                                 
                         Summary Output Data                                                                                                     
     MN       alt    dTs        W        Fg        Fn     SFC       Wfuel      WAR      OPR                                                      
@@ -1760,7 +1760,7 @@ CmpH             10.00
 
 *******************************************************************************                                                                 
 NCP                   NPSS_2.7.1    model:         fanjet     run by:       jcchin    solutionMode= STEADY_STATE    converge=    1    case:    2
-time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  1/  1/ 0/ 0     run: 07/09/15 18:14:36
+time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  1/  1/ 0/ 0     run: 07/09/15 19:16:33
                                                                                                                                                 
                         Summary Output Data                                                                                                     
     MN       alt    dTs        W        Fg        Fn     SFC       Wfuel      WAR      OPR                                                      
@@ -1840,7 +1840,7 @@ CmpH             10.00
 
 *******************************************************************************                                                                 
 NCP                   NPSS_2.7.1    model:         fanjet     run by:       jcchin    solutionMode= STEADY_STATE    converge=    1    case:    2
-time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  6/  6/ 0/ 4     run: 07/09/15 18:14:36
+time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  6/  6/ 0/ 4     run: 07/09/15 19:16:33
                                                                                                                                                 
                         Summary Output Data                                                                                                     
     MN       alt    dTs        W        Fg        Fn     SFC       Wfuel      WAR      OPR                                                      
@@ -1920,7 +1920,7 @@ CmpH             10.00
 
 *******************************************************************************                                                                 
 NCP                   NPSS_2.7.1    model:         fanjet     run by:       jcchin    solutionMode= STEADY_STATE    converge=    1    case:    2
-time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  7/  7/ 0/ 5     run: 07/09/15 18:14:36
+time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  7/  7/ 0/ 5     run: 07/09/15 19:16:33
                                                                                                                                                 
                         Summary Output Data                                                                                                     
     MN       alt    dTs        W        Fg        Fn     SFC       Wfuel      WAR      OPR                                                      
@@ -2000,7 +2000,7 @@ CmpH             10.00
 
 *******************************************************************************                                                                 
 NCP                   NPSS_2.7.1    model:         fanjet     run by:       jcchin    solutionMode= STEADY_STATE    converge=    1    case:    2
-time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  9/ 19/ 1/ 6     run: 07/09/15 18:14:36
+time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  9/ 19/ 1/ 6     run: 07/09/15 19:16:33
                                                                                                                                                 
                         Summary Output Data                                                                                                     
     MN       alt    dTs        W        Fg        Fn     SFC       Wfuel      WAR      OPR                                                      
@@ -2080,7 +2080,7 @@ CmpH             10.00
 
 *******************************************************************************                                                                 
 NCP                   NPSS_2.7.1    model:         fanjet     run by:       jcchin    solutionMode= STEADY_STATE    converge=    1    case:    2
-time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy= 17/ 27/ 1/14     run: 07/09/15 18:14:36
+time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy= 17/ 27/ 1/14     run: 07/09/15 19:16:33
                                                                                                                                                 
                         Summary Output Data                                                                                                     
     MN       alt    dTs        W        Fg        Fn     SFC       Wfuel      WAR      OPR                                                      
@@ -2160,7 +2160,7 @@ CmpH             10.00
 
 *******************************************************************************                                                                 
 NCP                   NPSS_2.7.1    model:         fanjet     run by:       jcchin    solutionMode= STEADY_STATE    converge=    1    case:    2
-time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy= 11/ 21/ 1/ 8     run: 07/09/15 18:14:36
+time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy= 11/ 21/ 1/ 8     run: 07/09/15 19:16:33
                                                                                                                                                 
                         Summary Output Data                                                                                                     
     MN       alt    dTs        W        Fg        Fn     SFC       Wfuel      WAR      OPR                                                      
@@ -2240,7 +2240,7 @@ CmpH             10.00
 
 *******************************************************************************                                                                 
 NCP                   NPSS_2.7.1    model:         fanjet     run by:       jcchin    solutionMode= STEADY_STATE    converge=    1    case:    2
-time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy= 13/ 13/ 0/11     run: 07/09/15 18:14:36
+time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy= 13/ 13/ 0/11     run: 07/09/15 19:16:33
                                                                                                                                                 
                         Summary Output Data                                                                                                     
     MN       alt    dTs        W        Fg        Fn     SFC       Wfuel      WAR      OPR                                                      
@@ -2320,7 +2320,7 @@ CmpH             10.00
 
 *******************************************************************************                                                                 
 NCP                   NPSS_2.7.1    model:         fanjet     run by:       jcchin    solutionMode= STEADY_STATE    converge=    1    case:    2
-time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  9/ 19/ 1/ 6     run: 07/09/15 18:14:36
+time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  9/ 19/ 1/ 6     run: 07/09/15 19:16:33
                                                                                                                                                 
                         Summary Output Data                                                                                                     
     MN       alt    dTs        W        Fg        Fn     SFC       Wfuel      WAR      OPR                                                      
@@ -2400,7 +2400,7 @@ CmpH             10.00
 
 *******************************************************************************                                                                 
 NCP                   NPSS_2.7.1    model:         fanjet     run by:       jcchin    solutionMode= STEADY_STATE    converge=    1    case:    2
-time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  1/  1/ 0/ 0     run: 07/09/15 18:14:36
+time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  1/  1/ 0/ 0     run: 07/09/15 19:16:33
                                                                                                                                                 
                         Summary Output Data                                                                                                     
     MN       alt    dTs        W        Fg        Fn     SFC       Wfuel      WAR      OPR                                                      
@@ -2480,7 +2480,7 @@ CmpH             10.00
 
 *******************************************************************************                                                                 
 NCP                   NPSS_2.7.1    model:         fanjet     run by:       jcchin    solutionMode= STEADY_STATE    converge=    1    case:    2
-time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy= 10/ 30/ 2/ 6     run: 07/09/15 18:14:36
+time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy= 10/ 30/ 2/ 6     run: 07/09/15 19:16:33
                                                                                                                                                 
                         Summary Output Data                                                                                                     
     MN       alt    dTs        W        Fg        Fn     SFC       Wfuel      WAR      OPR                                                      
@@ -2560,7 +2560,7 @@ CmpH             10.00
 
 *******************************************************************************                                                                 
 NCP                   NPSS_2.7.1    model:         fanjet     run by:       jcchin    solutionMode= STEADY_STATE    converge=    1    case:    2
-time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  7/  7/ 0/ 5     run: 07/09/15 18:14:36
+time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  7/  7/ 0/ 5     run: 07/09/15 19:16:33
                                                                                                                                                 
                         Summary Output Data                                                                                                     
     MN       alt    dTs        W        Fg        Fn     SFC       Wfuel      WAR      OPR                                                      
@@ -2640,7 +2640,7 @@ CmpH             10.00
 
 *******************************************************************************                                                                 
 NCP                   NPSS_2.7.1    model:         fanjet     run by:       jcchin    solutionMode= STEADY_STATE    converge=    1    case:    2
-time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy= 11/ 11/ 0/ 9     run: 07/09/15 18:14:36
+time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy= 11/ 11/ 0/ 9     run: 07/09/15 19:16:33
                                                                                                                                                 
                         Summary Output Data                                                                                                     
     MN       alt    dTs        W        Fg        Fn     SFC       Wfuel      WAR      OPR                                                      
@@ -2720,7 +2720,7 @@ CmpH             10.00
 
 *******************************************************************************                                                                 
 NCP                   NPSS_2.7.1    model:         fanjet     run by:       jcchin    solutionMode= STEADY_STATE    converge=    1    case:    2
-time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy= 11/ 21/ 1/ 8     run: 07/09/15 18:14:36
+time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy= 11/ 21/ 1/ 8     run: 07/09/15 19:16:33
                                                                                                                                                 
                         Summary Output Data                                                                                                     
     MN       alt    dTs        W        Fg        Fn     SFC       Wfuel      WAR      OPR                                                      
@@ -2800,7 +2800,7 @@ CmpH             10.00
 
 *******************************************************************************                                                                 
 NCP                   NPSS_2.7.1    model:         fanjet     run by:       jcchin    solutionMode= STEADY_STATE    converge=    1    case:    2
-time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy= 12/ 22/ 1/ 9     run: 07/09/15 18:14:36
+time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy= 12/ 22/ 1/ 9     run: 07/09/15 19:16:33
                                                                                                                                                 
                         Summary Output Data                                                                                                     
     MN       alt    dTs        W        Fg        Fn     SFC       Wfuel      WAR      OPR                                                      
@@ -2880,7 +2880,7 @@ CmpH             10.00
 
 *******************************************************************************                                                                 
 NCP                   NPSS_2.7.1    model:         fanjet     run by:       jcchin    solutionMode= STEADY_STATE    converge=    1    case:    2
-time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  6/  6/ 0/ 4     run: 07/09/15 18:14:36
+time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  6/  6/ 0/ 4     run: 07/09/15 19:16:33
                                                                                                                                                 
                         Summary Output Data                                                                                                     
     MN       alt    dTs        W        Fg        Fn     SFC       Wfuel      WAR      OPR                                                      
@@ -2960,7 +2960,7 @@ CmpH             10.00
 
 *******************************************************************************                                                                 
 NCP                   NPSS_2.7.1    model:         fanjet     run by:       jcchin    solutionMode= STEADY_STATE    converge=    1    case:    2
-time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  9/ 19/ 1/ 6     run: 07/09/15 18:14:36
+time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  9/ 19/ 1/ 6     run: 07/09/15 19:16:33
                                                                                                                                                 
                         Summary Output Data                                                                                                     
     MN       alt    dTs        W        Fg        Fn     SFC       Wfuel      WAR      OPR                                                      
@@ -3040,7 +3040,7 @@ CmpH             10.00
 
 *******************************************************************************                                                                 
 NCP                   NPSS_2.7.1    model:         fanjet     run by:       jcchin    solutionMode= STEADY_STATE    converge=    1    case:    2
-time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  1/  1/ 0/ 0     run: 07/09/15 18:14:36
+time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  1/  1/ 0/ 0     run: 07/09/15 19:16:33
                                                                                                                                                 
                         Summary Output Data                                                                                                     
     MN       alt    dTs        W        Fg        Fn     SFC       Wfuel      WAR      OPR                                                      
@@ -3120,7 +3120,7 @@ CmpH             10.00
 
 *******************************************************************************                                                                 
 NCP                   NPSS_2.7.1    model:         fanjet     run by:       jcchin    solutionMode= STEADY_STATE    converge=    1    case:    2
-time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  7/  7/ 0/ 5     run: 07/09/15 18:14:36
+time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  7/  7/ 0/ 5     run: 07/09/15 19:16:33
                                                                                                                                                 
                         Summary Output Data                                                                                                     
     MN       alt    dTs        W        Fg        Fn     SFC       Wfuel      WAR      OPR                                                      
@@ -3200,7 +3200,7 @@ CmpH             10.00
 
 *******************************************************************************                                                                 
 NCP                   NPSS_2.7.1    model:         fanjet     run by:       jcchin    solutionMode= STEADY_STATE    converge=    1    case:    2
-time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  9/  9/ 0/ 7     run: 07/09/15 18:14:36
+time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  9/  9/ 0/ 7     run: 07/09/15 19:16:33
                                                                                                                                                 
                         Summary Output Data                                                                                                     
     MN       alt    dTs        W        Fg        Fn     SFC       Wfuel      WAR      OPR                                                      
@@ -3280,7 +3280,7 @@ CmpH             10.00
 
 *******************************************************************************                                                                 
 NCP                   NPSS_2.7.1    model:         fanjet     run by:       jcchin    solutionMode= STEADY_STATE    converge=    1    case:    2
-time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy= 16/ 36/ 2/12     run: 07/09/15 18:14:36
+time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy= 16/ 36/ 2/12     run: 07/09/15 19:16:33
                                                                                                                                                 
                         Summary Output Data                                                                                                     
     MN       alt    dTs        W        Fg        Fn     SFC       Wfuel      WAR      OPR                                                      
@@ -3360,7 +3360,7 @@ CmpH             10.00
 
 *******************************************************************************                                                                 
 NCP                   NPSS_2.7.1    model:         fanjet     run by:       jcchin    solutionMode= STEADY_STATE    converge=    1    case:    2
-time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  4/  4/ 0/ 2     run: 07/09/15 18:14:36
+time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  4/  4/ 0/ 2     run: 07/09/15 19:16:33
                                                                                                                                                 
                         Summary Output Data                                                                                                     
     MN       alt    dTs        W        Fg        Fn     SFC       Wfuel      WAR      OPR                                                      
@@ -3440,7 +3440,7 @@ CmpH             10.00
 
 *******************************************************************************                                                                 
 NCP                   NPSS_2.7.1    model:         fanjet     run by:       jcchin    solutionMode= STEADY_STATE    converge=    1    case:    2
-time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy= 10/ 20/ 1/ 7     run: 07/09/15 18:14:36
+time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy= 10/ 20/ 1/ 7     run: 07/09/15 19:16:33
                                                                                                                                                 
                         Summary Output Data                                                                                                     
     MN       alt    dTs        W        Fg        Fn     SFC       Wfuel      WAR      OPR                                                      
@@ -3520,7 +3520,7 @@ CmpH             10.00
 
 *******************************************************************************                                                                 
 NCP                   NPSS_2.7.1    model:         fanjet     run by:       jcchin    solutionMode= STEADY_STATE    converge=    1    case:    2
-time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  7/  7/ 0/ 5     run: 07/09/15 18:14:36
+time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  7/  7/ 0/ 5     run: 07/09/15 19:16:33
                                                                                                                                                 
                         Summary Output Data                                                                                                     
     MN       alt    dTs        W        Fg        Fn     SFC       Wfuel      WAR      OPR                                                      
@@ -3600,7 +3600,7 @@ CmpH             10.00
 
 *******************************************************************************                                                                 
 NCP                   NPSS_2.7.1    model:         fanjet     run by:       jcchin    solutionMode= STEADY_STATE    converge=    1    case:    2
-time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy= 11/ 21/ 1/ 8     run: 07/09/15 18:14:36
+time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy= 11/ 21/ 1/ 8     run: 07/09/15 19:16:33
                                                                                                                                                 
                         Summary Output Data                                                                                                     
     MN       alt    dTs        W        Fg        Fn     SFC       Wfuel      WAR      OPR                                                      
@@ -3680,7 +3680,7 @@ CmpH             10.00
 
 *******************************************************************************                                                                 
 NCP                   NPSS_2.7.1    model:         fanjet     run by:       jcchin    solutionMode= STEADY_STATE    converge=    1    case:    2
-time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  1/  1/ 0/ 0     run: 07/09/15 18:14:36
+time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  1/  1/ 0/ 0     run: 07/09/15 19:16:33
                                                                                                                                                 
                         Summary Output Data                                                                                                     
     MN       alt    dTs        W        Fg        Fn     SFC       Wfuel      WAR      OPR                                                      
@@ -3760,7 +3760,7 @@ CmpH             10.00
 
 *******************************************************************************                                                                 
 NCP                   NPSS_2.7.1    model:         fanjet     run by:       jcchin    solutionMode= STEADY_STATE    converge=    1    case:    2
-time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  7/  7/ 0/ 5     run: 07/09/15 18:14:36
+time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  7/  7/ 0/ 5     run: 07/09/15 19:16:33
                                                                                                                                                 
                         Summary Output Data                                                                                                     
     MN       alt    dTs        W        Fg        Fn     SFC       Wfuel      WAR      OPR                                                      
@@ -3840,7 +3840,7 @@ CmpH             10.00
 
 *******************************************************************************                                                                 
 NCP                   NPSS_2.7.1    model:         fanjet     run by:       jcchin    solutionMode= STEADY_STATE    converge=    1    case:    2
-time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy= 12/ 22/ 1/ 9     run: 07/09/15 18:14:36
+time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy= 12/ 22/ 1/ 9     run: 07/09/15 19:16:33
                                                                                                                                                 
                         Summary Output Data                                                                                                     
     MN       alt    dTs        W        Fg        Fn     SFC       Wfuel      WAR      OPR                                                      
@@ -3920,7 +3920,7 @@ CmpH             10.00
 
 *******************************************************************************                                                                 
 NCP                   NPSS_2.7.1    model:         fanjet     run by:       jcchin    solutionMode= STEADY_STATE    converge=    1    case:    2
-time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy= 10/ 10/ 0/ 8     run: 07/09/15 18:14:36
+time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy= 10/ 10/ 0/ 8     run: 07/09/15 19:16:33
                                                                                                                                                 
                         Summary Output Data                                                                                                     
     MN       alt    dTs        W        Fg        Fn     SFC       Wfuel      WAR      OPR                                                      
@@ -4000,7 +4000,7 @@ CmpH             10.00
 
 *******************************************************************************                                                                 
 NCP                   NPSS_2.7.1    model:         fanjet     run by:       jcchin    solutionMode= STEADY_STATE    converge=    1    case:    2
-time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy= 24/ 44/ 2/20     run: 07/09/15 18:14:36
+time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy= 24/ 44/ 2/20     run: 07/09/15 19:16:33
                                                                                                                                                 
                         Summary Output Data                                                                                                     
     MN       alt    dTs        W        Fg        Fn     SFC       Wfuel      WAR      OPR                                                      
@@ -4080,7 +4080,7 @@ CmpH             10.00
 
 *******************************************************************************                                                                 
 NCP                   NPSS_2.7.1    model:         fanjet     run by:       jcchin    solutionMode= STEADY_STATE    converge=    1    case:    2
-time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy= 11/ 11/ 0/ 9     run: 07/09/15 18:14:36
+time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy= 11/ 11/ 0/ 9     run: 07/09/15 19:16:33
                                                                                                                                                 
                         Summary Output Data                                                                                                     
     MN       alt    dTs        W        Fg        Fn     SFC       Wfuel      WAR      OPR                                                      
@@ -4160,7 +4160,7 @@ CmpH             10.00
 
 *******************************************************************************                                                                 
 NCP                   NPSS_2.7.1    model:         fanjet     run by:       jcchin    solutionMode= STEADY_STATE    converge=    1    case:    2
-time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  9/ 19/ 1/ 6     run: 07/09/15 18:14:36
+time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  9/ 19/ 1/ 6     run: 07/09/15 19:16:33
                                                                                                                                                 
                         Summary Output Data                                                                                                     
     MN       alt    dTs        W        Fg        Fn     SFC       Wfuel      WAR      OPR                                                      
@@ -4240,7 +4240,7 @@ CmpH             10.00
 
 *******************************************************************************                                                                 
 NCP                   NPSS_2.7.1    model:         fanjet     run by:       jcchin    solutionMode= STEADY_STATE    converge=    1    case:    2
-time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  7/  7/ 0/ 5     run: 07/09/15 18:14:36
+time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  7/  7/ 0/ 5     run: 07/09/15 19:16:33
                                                                                                                                                 
                         Summary Output Data                                                                                                     
     MN       alt    dTs        W        Fg        Fn     SFC       Wfuel      WAR      OPR                                                      
@@ -4320,7 +4320,7 @@ CmpH             10.00
 
 *******************************************************************************                                                                 
 NCP                   NPSS_2.7.1    model:         fanjet     run by:       jcchin    solutionMode= STEADY_STATE    converge=    1    case:    2
-time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  1/  1/ 0/ 0     run: 07/09/15 18:14:36
+time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  1/  1/ 0/ 0     run: 07/09/15 19:16:33
                                                                                                                                                 
                         Summary Output Data                                                                                                     
     MN       alt    dTs        W        Fg        Fn     SFC       Wfuel      WAR      OPR                                                      
@@ -4400,7 +4400,7 @@ CmpH             10.00
 
 *******************************************************************************                                                                 
 NCP                   NPSS_2.7.1    model:         fanjet     run by:       jcchin    solutionMode= STEADY_STATE    converge=    1    case:    2
-time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  7/  7/ 0/ 5     run: 07/09/15 18:14:36
+time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  7/  7/ 0/ 5     run: 07/09/15 19:16:33
                                                                                                                                                 
                         Summary Output Data                                                                                                     
     MN       alt    dTs        W        Fg        Fn     SFC       Wfuel      WAR      OPR                                                      
@@ -4480,7 +4480,7 @@ CmpH             10.00
 
 *******************************************************************************                                                                 
 NCP                   NPSS_2.7.1    model:         fanjet     run by:       jcchin    solutionMode= STEADY_STATE    converge=    1    case:    2
-time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  7/  7/ 0/ 5     run: 07/09/15 18:14:36
+time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  7/  7/ 0/ 5     run: 07/09/15 19:16:33
                                                                                                                                                 
                         Summary Output Data                                                                                                     
     MN       alt    dTs        W        Fg        Fn     SFC       Wfuel      WAR      OPR                                                      
@@ -4560,7 +4560,7 @@ CmpH             10.00
 
 *******************************************************************************                                                                 
 NCP                   NPSS_2.7.1    model:         fanjet     run by:       jcchin    solutionMode= STEADY_STATE    converge=    1    case:    2
-time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy= 11/ 11/ 0/ 9     run: 07/09/15 18:14:36
+time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy= 11/ 11/ 0/ 9     run: 07/09/15 19:16:33
                                                                                                                                                 
                         Summary Output Data                                                                                                     
     MN       alt    dTs        W        Fg        Fn     SFC       Wfuel      WAR      OPR                                                      
@@ -4640,7 +4640,7 @@ CmpH             10.00
 
 *******************************************************************************                                                                 
 NCP                   NPSS_2.7.1    model:         fanjet     run by:       jcchin    solutionMode= STEADY_STATE    converge=    1    case:    2
-time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy= 11/ 21/ 1/ 8     run: 07/09/15 18:14:36
+time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy= 11/ 21/ 1/ 8     run: 07/09/15 19:16:33
                                                                                                                                                 
                         Summary Output Data                                                                                                     
     MN       alt    dTs        W        Fg        Fn     SFC       Wfuel      WAR      OPR                                                      
@@ -4720,7 +4720,7 @@ CmpH             10.00
 
 *******************************************************************************                                                                 
 NCP                   NPSS_2.7.1    model:         fanjet     run by:       jcchin    solutionMode= STEADY_STATE    converge=    1    case:    2
-time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy= 11/ 21/ 1/ 8     run: 07/09/15 18:14:36
+time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy= 11/ 21/ 1/ 8     run: 07/09/15 19:16:33
                                                                                                                                                 
                         Summary Output Data                                                                                                     
     MN       alt    dTs        W        Fg        Fn     SFC       Wfuel      WAR      OPR                                                      
@@ -4800,7 +4800,7 @@ CmpH             10.00
 
 *******************************************************************************                                                                 
 NCP                   NPSS_2.7.1    model:         fanjet     run by:       jcchin    solutionMode= STEADY_STATE    converge=    1    case:    2
-time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  7/  7/ 0/ 5     run: 07/09/15 18:14:36
+time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  7/  7/ 0/ 5     run: 07/09/15 19:16:33
                                                                                                                                                 
                         Summary Output Data                                                                                                     
     MN       alt    dTs        W        Fg        Fn     SFC       Wfuel      WAR      OPR                                                      
@@ -4880,7 +4880,7 @@ CmpH             10.00
 
 *******************************************************************************                                                                 
 NCP                   NPSS_2.7.1    model:         fanjet     run by:       jcchin    solutionMode= STEADY_STATE    converge=    1    case:    2
-time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy= 10/ 20/ 1/ 7     run: 07/09/15 18:14:36
+time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy= 10/ 20/ 1/ 7     run: 07/09/15 19:16:33
                                                                                                                                                 
                         Summary Output Data                                                                                                     
     MN       alt    dTs        W        Fg        Fn     SFC       Wfuel      WAR      OPR                                                      
@@ -4960,7 +4960,7 @@ CmpH             10.00
 
 *******************************************************************************                                                                 
 NCP                   NPSS_2.7.1    model:         fanjet     run by:       jcchin    solutionMode= STEADY_STATE    converge=    1    case:    2
-time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  1/  1/ 0/ 0     run: 07/09/15 18:14:36
+time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  1/  1/ 0/ 0     run: 07/09/15 19:16:33
                                                                                                                                                 
                         Summary Output Data                                                                                                     
     MN       alt    dTs        W        Fg        Fn     SFC       Wfuel      WAR      OPR                                                      
@@ -5040,7 +5040,7 @@ CmpH             10.00
 
 *******************************************************************************                                                                 
 NCP                   NPSS_2.7.1    model:         fanjet     run by:       jcchin    solutionMode= STEADY_STATE    converge=    1    case:    2
-time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  9/ 19/ 1/ 6     run: 07/09/15 18:14:36
+time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  9/ 19/ 1/ 6     run: 07/09/15 19:16:33
                                                                                                                                                 
                         Summary Output Data                                                                                                     
     MN       alt    dTs        W        Fg        Fn     SFC       Wfuel      WAR      OPR                                                      
@@ -5120,7 +5120,7 @@ CmpH             10.00
 
 *******************************************************************************                                                                 
 NCP                   NPSS_2.7.1    model:         fanjet     run by:       jcchin    solutionMode= STEADY_STATE    converge=    1    case:    2
-time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  7/  7/ 0/ 5     run: 07/09/15 18:14:36
+time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  7/  7/ 0/ 5     run: 07/09/15 19:16:33
                                                                                                                                                 
                         Summary Output Data                                                                                                     
     MN       alt    dTs        W        Fg        Fn     SFC       Wfuel      WAR      OPR                                                      
@@ -5200,7 +5200,7 @@ CmpH             10.00
 
 *******************************************************************************                                                                 
 NCP                   NPSS_2.7.1    model:         fanjet     run by:       jcchin    solutionMode= STEADY_STATE    converge=    1    case:    2
-time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy= 12/ 12/ 0/10     run: 07/09/15 18:14:36
+time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy= 12/ 12/ 0/10     run: 07/09/15 19:16:33
                                                                                                                                                 
                         Summary Output Data                                                                                                     
     MN       alt    dTs        W        Fg        Fn     SFC       Wfuel      WAR      OPR                                                      
@@ -5280,7 +5280,7 @@ CmpH             10.00
 
 *******************************************************************************                                                                 
 NCP                   NPSS_2.7.1    model:         fanjet     run by:       jcchin    solutionMode= STEADY_STATE    converge=    1    case:    2
-time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy= 11/ 21/ 1/ 8     run: 07/09/15 18:14:36
+time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy= 11/ 21/ 1/ 8     run: 07/09/15 19:16:33
                                                                                                                                                 
                         Summary Output Data                                                                                                     
     MN       alt    dTs        W        Fg        Fn     SFC       Wfuel      WAR      OPR                                                      
@@ -5360,7 +5360,7 @@ CmpH             10.00
 
 *******************************************************************************                                                                 
 NCP                   NPSS_2.7.1    model:         fanjet     run by:       jcchin    solutionMode= STEADY_STATE    converge=    1    case:    2
-time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy= 11/ 11/ 0/ 9     run: 07/09/15 18:14:36
+time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy= 11/ 11/ 0/ 9     run: 07/09/15 19:16:33
                                                                                                                                                 
                         Summary Output Data                                                                                                     
     MN       alt    dTs        W        Fg        Fn     SFC       Wfuel      WAR      OPR                                                      
@@ -5440,7 +5440,7 @@ CmpH             10.00
 
 *******************************************************************************                                                                 
 NCP                   NPSS_2.7.1    model:         fanjet     run by:       jcchin    solutionMode= STEADY_STATE    converge=    1    case:    2
-time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  9/ 19/ 1/ 6     run: 07/09/15 18:14:36
+time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  9/ 19/ 1/ 6     run: 07/09/15 19:16:33
                                                                                                                                                 
                         Summary Output Data                                                                                                     
     MN       alt    dTs        W        Fg        Fn     SFC       Wfuel      WAR      OPR                                                      
@@ -5520,7 +5520,7 @@ CmpH             10.00
 
 *******************************************************************************                                                                 
 NCP                   NPSS_2.7.1    model:         fanjet     run by:       jcchin    solutionMode= STEADY_STATE    converge=    1    case:    2
-time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  7/  7/ 0/ 5     run: 07/09/15 18:14:36
+time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  7/  7/ 0/ 5     run: 07/09/15 19:16:33
                                                                                                                                                 
                         Summary Output Data                                                                                                     
     MN       alt    dTs        W        Fg        Fn     SFC       Wfuel      WAR      OPR                                                      
@@ -5600,7 +5600,7 @@ CmpH             10.00
 
 *******************************************************************************                                                                 
 NCP                   NPSS_2.7.1    model:         fanjet     run by:       jcchin    solutionMode= STEADY_STATE    converge=    1    case:    2
-time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  1/  1/ 0/ 0     run: 07/09/15 18:14:36
+time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  1/  1/ 0/ 0     run: 07/09/15 19:16:33
                                                                                                                                                 
                         Summary Output Data                                                                                                     
     MN       alt    dTs        W        Fg        Fn     SFC       Wfuel      WAR      OPR                                                      
@@ -5680,7 +5680,7 @@ CmpH             10.00
 
 *******************************************************************************                                                                 
 NCP                   NPSS_2.7.1    model:         fanjet     run by:       jcchin    solutionMode= STEADY_STATE    converge=    1    case:    2
-time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  6/  6/ 0/ 4     run: 07/09/15 18:14:36
+time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  6/  6/ 0/ 4     run: 07/09/15 19:16:33
                                                                                                                                                 
                         Summary Output Data                                                                                                     
     MN       alt    dTs        W        Fg        Fn     SFC       Wfuel      WAR      OPR                                                      
@@ -5760,7 +5760,7 @@ CmpH             10.00
 
 *******************************************************************************                                                                 
 NCP                   NPSS_2.7.1    model:         fanjet     run by:       jcchin    solutionMode= STEADY_STATE    converge=    1    case:    2
-time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  7/  7/ 0/ 5     run: 07/09/15 18:14:36
+time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  7/  7/ 0/ 5     run: 07/09/15 19:16:33
                                                                                                                                                 
                         Summary Output Data                                                                                                     
     MN       alt    dTs        W        Fg        Fn     SFC       Wfuel      WAR      OPR                                                      
@@ -5840,7 +5840,7 @@ CmpH             10.00
 
 *******************************************************************************                                                                 
 NCP                   NPSS_2.7.1    model:         fanjet     run by:       jcchin    solutionMode= STEADY_STATE    converge=    1    case:    2
-time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy= 12/ 22/ 1/ 9     run: 07/09/15 18:14:36
+time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy= 12/ 22/ 1/ 9     run: 07/09/15 19:16:33
                                                                                                                                                 
                         Summary Output Data                                                                                                     
     MN       alt    dTs        W        Fg        Fn     SFC       Wfuel      WAR      OPR                                                      
@@ -5920,7 +5920,7 @@ CmpH             10.00
 
 *******************************************************************************                                                                 
 NCP                   NPSS_2.7.1    model:         fanjet     run by:       jcchin    solutionMode= STEADY_STATE    converge=    1    case:    2
-time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  1/  1/ 0/ 0     run: 07/09/15 18:14:36
+time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  1/  1/ 0/ 0     run: 07/09/15 19:16:33
                                                                                                                                                 
                         Summary Output Data                                                                                                     
     MN       alt    dTs        W        Fg        Fn     SFC       Wfuel      WAR      OPR                                                      
@@ -6000,7 +6000,7 @@ CmpH             10.00
 
 *******************************************************************************                                                                 
 NCP                   NPSS_2.7.1    model:         fanjet     run by:       jcchin    solutionMode= STEADY_STATE    converge=    1    case:    2
-time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  8/  8/ 0/ 6     run: 07/09/15 18:14:36
+time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  8/  8/ 0/ 6     run: 07/09/15 19:16:33
                                                                                                                                                 
                         Summary Output Data                                                                                                     
     MN       alt    dTs        W        Fg        Fn     SFC       Wfuel      WAR      OPR                                                      
@@ -6080,7 +6080,7 @@ CmpH             10.00
 
 *******************************************************************************                                                                 
 NCP                   NPSS_2.7.1    model:         fanjet     run by:       jcchin    solutionMode= STEADY_STATE    converge=    1    case:    2
-time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  9/  9/ 0/ 7     run: 07/09/15 18:14:36
+time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  9/  9/ 0/ 7     run: 07/09/15 19:16:33
                                                                                                                                                 
                         Summary Output Data                                                                                                     
     MN       alt    dTs        W        Fg        Fn     SFC       Wfuel      WAR      OPR                                                      
@@ -6160,7 +6160,7 @@ CmpH             10.00
 
 *******************************************************************************                                                                 
 NCP                   NPSS_2.7.1    model:         fanjet     run by:       jcchin    solutionMode= STEADY_STATE    converge=    1    case:    2
-time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  9/  9/ 0/ 7     run: 07/09/15 18:14:36
+time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  9/  9/ 0/ 7     run: 07/09/15 19:16:33
                                                                                                                                                 
                         Summary Output Data                                                                                                     
     MN       alt    dTs        W        Fg        Fn     SFC       Wfuel      WAR      OPR                                                      
@@ -6240,7 +6240,7 @@ CmpH             10.00
 
 *******************************************************************************                                                                 
 NCP                   NPSS_2.7.1    model:         fanjet     run by:       jcchin    solutionMode= STEADY_STATE    converge=    1    case:    2
-time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  7/ 17/ 1/ 4     run: 07/09/15 18:14:36
+time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  7/ 17/ 1/ 4     run: 07/09/15 19:16:33
                                                                                                                                                 
                         Summary Output Data                                                                                                     
     MN       alt    dTs        W        Fg        Fn     SFC       Wfuel      WAR      OPR                                                      
@@ -6320,7 +6320,7 @@ CmpH             10.00
 
 *******************************************************************************                                                                 
 NCP                   NPSS_2.7.1    model:         fanjet     run by:       jcchin    solutionMode= STEADY_STATE    converge=    1    case:    2
-time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy= 40/ 60/ 2/36     run: 07/09/15 18:14:36
+time:  0.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy= 40/ 60/ 2/36     run: 07/09/15 19:16:33
                                                                                                                                                 
                         Summary Output Data                                                                                                     
     MN       alt    dTs        W        Fg        Fn     SFC       Wfuel      WAR      OPR                                                      
@@ -6400,7 +6400,7 @@ CmpH             10.00
 
 *******************************************************************************                                                                 
 NCP                   NPSS_2.7.1    model:         fanjet     run by:       jcchin    solutionMode= STEADY_STATE    converge=    1    case:    2
-time: 10.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  1/  1/ 0/ 0     run: 07/09/15 18:14:37
+time: 10.000    timeStep:0.0500     therm_package:GasTbl      Mode:                   iter/pas/Jac/Broy=  1/  1/ 0/ 0     run: 07/09/15 19:16:33
                                                                                                                                                 
                         Summary Output Data                                                                                                     
     MN       alt    dTs        W        Fg        Fn     SFC       Wfuel      WAR      OPR                                                      
