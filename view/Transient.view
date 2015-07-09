@@ -20,7 +20,7 @@
 
 // ****  T R A N S I E N T   C A S E C O L U M N   V I E W E R  ****
 
-OutFileStream transientStream { filename = "tout"; }
+OutFileStream transientStream { filename = "output/tout"; }
 
 DataViewer CaseRowViewer transientTrace {
 

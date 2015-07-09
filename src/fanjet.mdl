@@ -32,8 +32,8 @@ fine, imprisonment, or both.
 //                                                                       |
 //   This fan jet model has been developed to use as example in User
 //   Guide document.  Model uses E3 compressor and turbine maps.
-#include "TurbinePRmap2.int";
-#include "TurbineTwo.int";
+#include "src/TurbinePRmap2.int";
+#include "src/TurbineTwo.int";
 AUTHOR = " ";
 MODELNAME = "fanjet";
 string Model_ID = "fanjet for documentation example";
@@ -551,6 +551,6 @@ linkPorts( "TrbH.Sh_O",      "ShH.MeTrbH",   "MeTrbH" );
  
 
 //solver.debugLevel = "ITERATION_DETAILS";
-//solver.diagnosticFile = "solver.diag";
+//solver.diagnosticFile = "output/solver.diag";
 
 

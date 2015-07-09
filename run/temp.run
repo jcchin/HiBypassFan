@@ -1,5 +1,5 @@
 cerr {
-  filename = "bug.out";
+  filename = "output/bug.out";
 }
 
 

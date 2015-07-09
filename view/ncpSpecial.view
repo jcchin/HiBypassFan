@@ -49,7 +49,7 @@ class SummaryBlock extends SimpleBlock {
 // Define the PageViewer "ncpView".
 
 OutFileStream pvStream {
-  filename = "viewOut";
+  filename = "output/viewOut";
 }
 
 DataViewer PageViewer ncpView {
