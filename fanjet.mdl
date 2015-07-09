@@ -1,0 +1,556 @@
+/*******************************************************************************
+© Copyright 2003. The U.S. Government, as Represented by the Administrator of
+the National Aeronautics and Space Administration (NASA). All rights reserved.
+Includes content licensed from the U.S. Government, National Aeronautics and
+Space Administration under United States Copyright Registration Numbers
+V3503D364 and V3482D344.
+© 2008-2013 NPSS® Consortium, www.NPSSConsortium.org/AllRightsReserved
+*******************************************************************************/
+
+/*******************************************************************************
+NPSS® software and related documentation is export controlled with an Export
+Control Classification Number(ECCN) of 9D991, controlled for Anti-Terrorism
+reasons, under U.S. Export Administration Regulations 15 CFR 730-774. It may
+not be transferred to a country checked under anti-terrorism on the Commerce
+Country Chart structure or to foreign nationals of those countries in the U.S.
+or abroad without first obtaining a license from the Bureau of Industry and
+Security, United States Department of Commerce. Violations are punishable by
+fine, imprisonment, or both.
+*******************************************************************************/
+//
+//------------------------------------------------------------------------
+//   F A N J E T   E N G I N E                                           |
+//                                                                       |
+//   File Name:     fanjet.mdl                                           |
+//   Version:       2.0                                                  |
+//   Date(s):       11 November 1998                                     |
+//                   5 Dec 2006  - ARP5571 standard nomenclature         |
+//                   Aug 2011 – New Turbine and Compressor element       |
+//                                and subelement architecture            |
+//                   Sept 2011 - added instructions for running the      |
+//                               model with the various thermopackages   |
+//                                                                       |
+//   This fan jet model has been developed to use as example in User
+//   Guide document.  Model uses E3 compressor and turbine maps.
+#include "TurbinePRmap2.int";
+#include "TurbineTwo.int";
+AUTHOR = " ";
+MODELNAME = "fanjet";
+string Model_ID = "fanjet for documentation example";
+
+
+// ------------------------------
+//      Ambient Amb
+// ------------------------------
+
+Element Ambient Amb {
+  switchMode = "ALDTMN";
+  alt_in      = 0.;
+  dTs_in    = 0.;
+  MN_in       = 0.;
+} // END Amb
+
+
+// ------------------------------
+//      InletStart InletStart
+// ------------------------------
+
+Element InletStart InletStart{
+  AmbientName = "Amb";
+  W_in = 828.51;
+}
+
+// ------------------------------
+//      Inlet InEng
+// ------------------------------
+
+Element Inlet InEng {
+  eRamBase = 0.9925;
+} // END InEng
+
+
+
+
+// ------------------------------
+//      Compressor CmpFSec
+// ------------------------------
+
+Element Compressor Fan {
+  // Load map file.
+  // This plugs the CompressorRline subelement into S_map socket, 
+  // defines S_map tables TB_eff, TB_PR, TB_Wc, and sets values 
+  // for S_map.alphaMapDes, S_map.RlineMapDes, and S_map.NcMapDes
+  #include "maps/Fan_DD.map";
+  PRdes  = 1.765;
+  effDes= 0.9313;
+  Sh_O.inertia = 10.;     // slugs-ft**2.
+
+} //END CmpFSec
+
+// ------------------------------
+//      Splitter SpltFan
+// ------------------------------
+
+Element Splitter Splt {
+  BPRdes = 4.8996;
+} // END SpltFan
+
+// ------------------------------
+//      Bleed B025in
+// ------------------------------
+
+Element Bleed B025in {   
+}
+
+// ------------------------------
+//      Duct Dfan
+// ------------------------------
+
+Element Duct Dfan {
+         switchDP="INPUT";  
+         dPqP_in=0.0149;
+	 //numRakes=1;
+
+} // END FanDuct
+
+
+// ------------------------------
+//      Bleed BFanOB
+// ------------------------------
+
+Element Bleed BFanOB { 
+  BleedOutPort BFanOB {
+    hscale = 1.0;
+    Pscale = 1.0;
+    fracW = .00;
+  }
+}
+
+
+// ------------------------------
+//      Nozzle NozSec
+// ------------------------------
+
+Element Nozzle NozSec {
+  PsExhName = "Amb.Ps";
+  Cfg = .9926;
+} //END NozSec
+
+
+// ------------------------------
+//      Compressor CmpL
+// ------------------------------
+
+Element Compressor CmpL {
+  // Load map file.
+  // This plugs the CompressorRline subelement into S_map socket, 
+  // defines S_map tables TB_eff, TB_PR, TB_Wc, and sets values 
+  // for S_map.alphaMapDes, S_map.RlineMapDes, and S_map.NcMapDes
+  #include "maps/LPC_DD.map";
+  PRdes  = 1.914;
+  effDes = 0.9313;
+  Sh_O.inertia = 10.;     // slugs-ft**2.
+} //END CmpL
+
+
+// ------------------------------
+//      Bleed B025
+// ------------------------------
+
+Element Bleed B025 {   
+}
+  
+// <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+//      Duct D025
+// <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+Element Duct D025{  
+         switchDP="INPUT";  
+         dPqP_in=0.0101;
+	 //numRakes=1;
+	
+} // END D025
+
+
+
+// ------------------------------
+//      Compressor CmpH
+// ------------------------------
+
+Element Compressor CmpH {
+  // Load map file.
+  // This plugs the CompressorRline subelement into S_map socket, 
+  // defines S_map tables TB_eff, TB_PR, TB_Wc, and sets values 
+  // for S_map.alphaMapDes, S_map.RlineMapDes, and S_map.NcMapDes
+  #include "maps/HPC_DD.map";
+  PRdes  = 9.666;
+  effDes= 0.8765;
+  Sh_O.inertia = 10.;     // slugs-ft**2.
+
+  //Comment out this Subelement to run the CEA thermo package
+  Subelement ThermalMass S_Qhx {
+    Ahx = 35743.5;
+    CpMat = 1.0;
+    ChxDes = .0003858;
+    massMat = 500;
+    wtdAvg_Fl = .5;
+  }
+} //END CmpH
+
+
+// ------------------------------
+//      FuelStart FusEng
+// ------------------------------
+
+Element FuelStart FusEng {
+	hFuel = 182.7175;
+} // END FusEng
+
+
+/************************************************************************************
+WARNING: Not all the Thermo Packages shown here are available in the Learning Package.
+**************************************************************************************
+*	The following are examples of how to set up the fanjet model to run with the
+*	different Thermo Packages supplied with NPSS. These examples are using Jet-A
+*	fuel type at 77 F.
+*
+*	-------------------------------------------------------------------------------------
+*	Example One, allFuel:
+*	-------------------------------------------------------------------------------------
+*
+*	// First define the thermo to be used in the HiBypassFanjet.mdl file or the fanjet.run
+*	// file, depending on which file you are using to load/run the model:
+*
+*	setThermoPackage("allFuel");
+*
+*	// Next set the desired properties in the FuelStart element.
+*	// This can be done by modifying the FuelStart element in this file as follows, or by
+*	// setting FusEng's attributes anywhere after the fanjet.mdl file is loaded 
+*	// (i.e. HiBypassFanjet.mdl or fanjet.run), or at the top of the desOD.case file:
+*
+*	Element FuelStart FusEng {
+*	  // hFuel can be added to. Example hFuel = 191.29;
+*	  // hFuel and LHV are predetermined by switchFuelType.
+*	  // LHV can be overridden.
+*	  // TFuel by default does not change hFuel, separate source required.
+*	  void calculate(){
+*		  FuelStart::calculate();
+*		  Fu_O.hFuel += 8.0; //adder to change reference from 59F to 77F.
+*	  }
+*	}
+*
+*	// Next, place the following line of code anywhere after the fanjet.mdl file is loaded 
+*	// (i.e. HiBypassFanjet.mdl or fanjet.run), or at the top of the desOD.case file:
+*	setOption("switchFuelType","JP");
+*
+*	-------------------------------------------------------------------------------------
+*	Example Two, Janaf:
+*	-------------------------------------------------------------------------------------
+*
+*	// First define the thermo to be used in the HiBypassFanjet.mdl file or the fanjet.run
+*	// file, depending on which file you are using to load/run the model:
+*	 
+*	setThermoPackage("Janaf");
+*
+*	// Next set the desired properties in the FuelStart element.
+*	// This can be done by modifying the FuelStart element in this file as follows, or by
+*	// setting FusEng's attributes anywhere after the fanjet.mdl file is loaded 
+*	// (i.e. HiBypassFanjet.mdl or fanjet.run), or at the top of the desOD.case file:
+*
+*	Element FuelStart FusEng {
+*		hFuel = 0;
+*		LHV = 18400.;
+*		Carbon = 1.;
+*		Hydrogen = .15598;
+*		hFuel = .481*( 536.67 - 529.67 );
+*	} // END FusEng
+*
+*	-------------------------------------------------------------------------------------
+*	Example Three, GasTbl:
+*	-------------------------------------------------------------------------------------
+*
+*	// First define the thermo to be used in the HiBypassFanjet.mdl file or the fanjet.run
+*	// file, depending on which file you are using to load/run the model:
+*
+*	setThermoPackage("GasTbl");
+*
+*	// Next set the desired properties in the FuelStart element below this comment block.
+*	// This can be done by modifying the FuelStart element in this file as follows, or by
+*	// setting FusEng's attributes anywhere after the fanjet.mdl file is loaded 
+*	// (i.e. HiBypassFanjet.mdl or fanjet.run), or at the top of the desOD.case file.
+*
+*	Element FuelStart FusEng {
+*		Tref = 518.67; // 518.67 (59 F) if GASTAB, 536.67 (77 F) otherwise
+*		hRef = 0; // GasTbl does not support absolute fuel enthalpy!
+*		hFuel = 10; // use hFuel input as "extra" dhFuel since hRef = 0
+*		LHV = 18400;
+*	} // END FusEng
+*
+*	-------------------------------------------------------------------------------------
+*	Example Four, CEA:
+*	-------------------------------------------------------------------------------------
+*
+*	// First define the thermo to be used in the HiBypassFanjet.mdl file or the fanjet.run
+*	// file, depending on which file you are using to load/run the model:
+*	 
+*	setThermoPackage( "CEA", "thermo.inp", "trans.inp", "Air", "H2O", "Jet-A(L)" ); 
+*
+*	// Next, several elements' attributes must be modified in order for the model to work
+*	// with CEA. The following modifications may be performed either in this file (at the
+*	// respective element instantiations), or anywhere after the fanjet.mdl file is loaded 
+*	// (i.e. HiBypassFanjet.mdl or fanjet.run), or at the top of the desOD.case file:
+*
+*	// set the FuelStart attributes
+*	Element FuelStart FusEng {
+*		hFuel = -699.4;
+*		fuelType = "Jet-A(L)"; 
+*	} // END FusEng
+*
+*	// Burner efficiency must be set to 1.0 in order to comply with the CEA FlowStation burn function
+*	BrnPri.effBase = 1.0; 
+*
+*	// In this model the CmpH Compressor and and TrbH Turbine each have a ThermalMass subelement
+*	// plugged into their S_Qhx socket.  The CmpH and TrbH inlet and outlet fluid ports need to
+*	// have their switchTransport attributes set to "EQUIL"
+*	CmpH.Fl_I.switchTransport = "EQUIL";
+*	CmpH.Fl_O.switchTransport = "EQUIL";
+*	TrbH.Fl_I.switchTransport = "EQUIL";
+*	TrbH.Fl_O.switchTransport = "EQUIL";
+*		
+*	// Set each nozzle's switchFrozen attribute to equilibrium.  Otherwise additional
+*	// information about frozen conditions must be supplied
+*	NozPri.switchFrozen = "EQUIL";
+*	NozSec.switchFrozen = "EQUIL";
+*
+*	-------------------------------------------------------------------------------------
+*	Example Five, Fluid Property Tables (FPT):
+*	-------------------------------------------------------------------------------------
+*
+*	FPT is not recommended to be used here. FPT does not support FuelStations or the 
+*	burn function therefore, these elements will not function.
+*
+************************************************************************************/
+
+
+// ------------------------------
+//      Burner BrnPri
+// ------------------------------
+
+Element Burner BrnPri {
+  dPqP_dmd         = 0.054;
+  effBase           = 0.98;
+
+  switchHotLoss   =  "input";
+  switchBurn      = "FUEL";
+  Wfuel = 3.312;
+  tolRayleigh       = 0.0001;
+
+} // END BrnPri
+
+
+// ------------------------------
+//      Bleed B041
+// ------------------------------
+
+Element Bleed B041 {  
+}
+
+
+// ------------------------------
+//      Turbine TrbH
+// ------------------------------
+
+Element TurbineTwo TrbH {
+  // Load map file.
+  // This plugs the TurbinePRmap2 subelement into S_map socket, 
+  // defines S_map tables TB_eff and TB_Wp, and sets values 
+  // for S_map.PRmapDes and S_map.NpMapDes
+  #include "maps/HPT.map";
+  PRbase = 4.984; // pressure ratio initial guess
+  effDes = 0.88;
+  
+  //Comment out this Subelement to run the CEA thermo package
+  Subelement ThermalMass S_Qhx {
+    Ahx = 3574.35;
+    CpMat = 1.0;
+    ChxDes = .0003858;
+    massMat = 100;
+    wtdAvg_Fl = .5;
+  }
+
+} //END TrbH
+
+
+// ------------------------------
+//      Bleed B042
+// ------------------------------
+
+Element Bleed B042 {   
+}
+
+
+// ------------------------------
+//      Duct D043
+// ------------------------------
+
+Element Duct D043 {
+  switchDP = "INPUT";  
+  void preexecute() {
+    dPqP_in = 0.25 * Fl_I.MN * Fl_I.MN;
+  }
+  Fl_I.MNdes = 0.4;
+} //END D043
+
+
+// ------------------------------
+//      Turbine TrbL
+// ------------------------------
+
+Element TurbineTwo TrbL {
+  // Load map file.
+  // This plugs the TurbinePRmap2 subelement into S_map socket, 
+  // defines S_map tables TB_eff and TB_Wp, and sets values 
+  // for S_map.PRmapDes and S_map.NpMapDes
+  #include "maps/LPT.map";
+  PRbase = 4.2915; // pressure ratio initial guess
+  effDes = 0.9232;
+} //END TrbL
+
+
+// ------------------------------
+//      Bleed B045
+// ------------------------------
+
+Element Bleed B045 {  
+
+}
+
+
+// ------------------------------
+//      Nozzle NozPri
+// ------------------------------
+
+Element Nozzle NozPri {
+  PsExhName = "Amb.Ps";
+  Cfg = .9926;
+} //END NozPri
+
+// ------------------------------
+//      FlowEnds
+// ------------------------------
+
+Element FlowEnd FePri {
+}
+
+Element FlowEnd FeSec {
+}
+
+Element FlowEnd FeFanOB {
+}
+
+
+// ------------------------------
+//      Shaft ShH
+// ------------------------------
+
+Element Shaft ShH {
+  //  Mechanical Ports.  These are created as needed on the shaft.
+  ShaftInputPort MeCmpH, MeTrbH;          
+  Nmech = 8997.43;
+  inertia = .93243;       //30. lbm-ft2;
+}   //END ShH
+
+
+// ------------------------------
+//      Shaft ShL
+// ------------------------------
+
+Element Shaft ShL {
+  ShaftInputPort MeCmpFSec, MeCmpL, MeTrbL;
+  Nmech = 3497.40;
+  inertia = 2.73513;     //88. lbm-ft2;
+}   //END ShL
+
+
+// ------------------------------
+//      PerfNASA Perf
+// ------------------------------
+
+Element EngPerf Perf {
+} //END Perf
+
+
+
+
+// ------------------------------
+//      Controls
+// ------------------------------
+#include "controls.cmp"
+
+
+// -------------------------------
+//      linkPorts
+// -------------------------------
+linkPorts( "InletStart.Fl_O", "InEng.Fl_I",        "F0"    );
+linkPorts( "InEng.Fl_O",      "Fan.Fl_I",      "F01A"  );
+// Primary section
+linkPorts( "Fan.Fl_O",   "Splt.Fl_I",         "F025"  );
+linkPorts( "Splt.Fl_O1",   "CmpL.Fl_I",         "F025p"  );
+
+linkPorts( "CmpL.Fl_O",       "B025.Fl_I",         "F0251" );
+linkPorts( "B025.Fl_O",       "D025.Fl_I",         "F0252" );
+linkPorts( "D025.Fl_O",       "CmpH.Fl_I",         "F0253" );
+linkPorts( "CmpH.Fl_O",       "BrnPri.Fl_I",       "F03"   );
+linkPorts( "FusEng.Fu_O",     "BrnPri.Fu_I",       "FU036" );
+// Primary Hot Section Connect Statements:
+linkPorts( "BrnPri.Fl_O",     "B041.Fl_I",         "F041"  );
+linkPorts( "B041.Fl_O",       "TrbH.Fl_I",         "F041a" );
+linkPorts( "TrbH.Fl_O",       "B042.Fl_I",         "F042"  );
+linkPorts( "B042.Fl_O",       "D043.Fl_I",         "F043"  );
+linkPorts( "D043.Fl_O",       "TrbL.Fl_I",         "F044"  );
+linkPorts( "TrbL.Fl_O",       "B045.Fl_I",         "F045"  );
+linkPorts( "B045.Fl_O" ,      "NozPri.Fl_I",       "F07"   );
+linkPorts( "NozPri.Fl_O",     "FePri.Fl_I",        "F09"   );
+// Fan duct section:
+linkPorts( "Splt.Fl_O2",   "B025in.Fl_I",      "F12"   );
+linkPorts( "B025in.Fl_O",     "Dfan.Fl_I",         "F16"   );
+linkPorts( "Dfan.Fl_O",       "BFanOB.Fl_I",       "F165"  );
+linkPorts( "BFanOB.Fl_O",     "NozSec.Fl_I",       "F17"   );
+linkPorts( "NozSec.Fl_O",     "FeSec.Fl_I",        "F19"   );
+
+FlowStart Start{
+ W = 0;
+}
+Element Bleed OBD;
+FlowEnd End;
+linkPorts( "Start.Fl_O", "OBD.Fl_I", "T1" );
+linkPorts( "OBD.Fl_O", "End.Fl_I", "T2" );
+
+// -------------------------------
+//      Bleed Connections
+// -------------------------------
+// Component to Component Bleed
+linkBleedCT( "CmpH", "TrbH",   .150, 1., 1., 1., 0, "ca1HPT" );
+linkBleedCT( "CmpH", "TrbL",   .0207, .5, .5, 1., 0.,       "ca2HPT" );
+linkBleedCT( "CmpH", "TrbL",   .0518, .5, .5, 0., 0,       "ca3HPT" );
+linkBleedCB( "CmpH", "OBD",    .0167, .5, .5,        "ca" );
+linkBleedBB( "BFanOB",  "OBD", 4./688., .5, .5,        "ca1" );
+//Overboard bleed
+linkPorts( "BFanOB.BFanOB",   "FeFanOB.Fl_I",      "FL166");
+
+
+// -------------------------------
+//      Shaft Connect Statements
+// -------------------------------
+linkPorts( "CmpL.Sh_O",      "ShL.MeCmpL",   "MeCmpL" );
+linkPorts( "Fan.Sh_O",   "ShL.MeCmpFSec","MeCmpFSec" );
+linkPorts( "TrbL.Sh_O"   ,   "ShL.MeTrbL",   "MeTrbL" );
+linkPorts( "CmpH.Sh_O",      "ShH.MeCmpH",   "MeCmpH" );
+linkPorts( "TrbH.Sh_O",      "ShH.MeTrbH",   "MeTrbH" );
+
+ 
+
+//solver.debugLevel = "ITERATION_DETAILS";
+//solver.diagnosticFile = "solver.diag";
+
+

@@ -1,0 +1,43 @@
+//******************************************************************************
+//*   © Copyright 2003.  The U.S. Government, as Represented by the Administrator
+//*     of the National Aeronautics and Space Administration (NASA).
+//*   © Copyright 2008 - 2013.     The Ohio Aerospace Institute, on behalf of the NPSS(TM)
+//*     Consortium.  All rights reserved.  Includes content licensed from the 
+//*     U.S. Government, National Aeronautics and Space Administration under 
+//*     United States Copyright Registration Numbers  V3503D364 and V3482D344.
+//*******************************************************************************
+
+//******************************************************************************
+//*  NPSSTM software and related documentation is export controlled
+//*  with an Export Control Classification Number(ECCN) of 9D991, controlled for
+//*  Anti-Terrorism reasons, under U.S. Export Administration Regulations 15 CFR
+//*  730-774. It may not be transferred to a country checked under anti-terrorism
+//*  on the Commerce Country Chart structure or to foreign nationals of those
+//*  countries in the U.S. or abroad without first obtaining a license from the
+//*  Bureau of Industry and Security, United States Department of Commerce. 
+//*  Violations are punishable by fine, imprisonment, or both.
+//*******************************************************************************
+
+// ****  T R A N S I E N T   C A S E C O L U M N   V I E W E R  ****
+
+OutFileStream transientStream { filename = "tout"; }
+
+DataViewer CaseRowViewer transientTrace {
+
+  titleBody = " ";
+  titleVars = { };
+  variableList = {
+    "time: ??.???? ",
+    "InEng.Fl_I.W : ???.?? = Air Flow",
+    "CmpH.Fl_O.Pt : ????.?? = Pt3",
+    "CmpH.Fl_O.Tt : ????.?? = Tt3",
+    "ShH.Nmech : ??????.?? = HPSpeed",
+    "ShL.Nmech : ??????.?? = LPspeed",
+    "CmpH.S_Qhx.Tmat : ????.?? = Tmat"
+  };
+
+  pageWidth = 132;
+  pageHeight = 0.;
+  outStreamHandle = "transientStream";
+}
+

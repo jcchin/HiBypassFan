@@ -1,0 +1,206 @@
+//******************************************************************************
+//*   © Copyright 2003.  The U.S. Government, as Represented by the Administrator
+//*     of the National Aeronautics and Space Administration (NASA).
+//*   © Copyright 2008 - 2013.     The Ohio Aerospace Institute, on behalf of the NPSS(TM)
+//*     Consortium.  All rights reserved.  Includes content licensed from the 
+//*     U.S. Government, National Aeronautics and Space Administration under 
+//*     United States Copyright Registration Numbers  V3503D364 and V3482D344.
+//*******************************************************************************
+
+//******************************************************************************
+//*  NPSSTM software and related documentation is export controlled
+//*  with an Export Control Classification Number(ECCN) of 9D991, controlled for
+//*  Anti-Terrorism reasons, under U.S. Export Administration Regulations 15 CFR
+//*  730-774. It may not be transferred to a country checked under anti-terrorism
+//*  on the Commerce Country Chart structure or to foreign nationals of those
+//*  countries in the U.S. or abroad without first obtaining a license from the
+//*  Bureau of Industry and Security, United States Department of Commerce. 
+//*  Violations are punishable by fine, imprisonment, or both.
+//*******************************************************************************
+
+//class Control extends Element { }
+
+//Element Control CONTROL {
+Element CONTROL {
+  // Variables and limits
+  real PLACS;
+  real T1ACS;
+  real T25CS;
+  real P1ACS;
+  real P25CS;
+  real PS3CS;
+  real T41CS;
+  real P7CS;
+  real T7CS;
+  real WF36CS;
+  real TH1A;
+
+  real T41H = 3206;
+  real WFEL = 430;
+
+  real PCNHR = 105;
+  real PCNHH = 105;
+
+  real PCNHRH;
+
+  real XN25CS;
+  real PCNHRS;
+  real EPCNHR;
+  real XNDHP;
+  real EPCNHH;
+  real EPNHRH;
+
+  real ET41;
+  real ERR1;
+
+  real XNHRD = 13000;
+
+  real WFED;
+
+  // Frame rate
+  real dtime = .05;
+
+  // Execute time
+  real execTime = 0;
+
+  real TSTD = 518.67;
+
+  void variableChanged(string name, string value) {
+    // do nothing...
+  }
+
+  Option switchDes {
+    allowedValues = { "DESIGN", "OFFDESIGN" }
+    value = "DESIGN";
+  }
+
+  Option solutionMode {
+    allowedValues = { "TRANSIENT", "STEADY_STATE", "ONE_PASS" }
+    value = "STEADY_STATE";
+  }
+
+  // Get data from engine to control
+  void mapIn() {
+    XN25CS = ShL.Nmech;
+    T1ACS = F0.Tt;
+    T25CS = F01A.Tt;
+    P1ACS = F0.Pt;
+    P25CS = F01A.Pt;
+    PS3CS = F03.Ps;
+    T41CS = F041.Tt;
+    P7CS = F07.Pt;
+    T7CS = F07.Tt;
+    WF36CS = FusEng.Wfuel;
+  }
+
+  // Get data from control to engine
+  void mapOut() {
+    if ( solutionMode == "TRANSIENT" ) { BrnPri.Wfuel = WFED * BrnPri.Wfuel;}
+  }
+
+
+  void calculate() {
+    //steady state mode
+    if ( solutionMode == "STEADY_STATE" ) {
+      mapIn();
+      steadyState();
+    }
+  }
+
+  // Steady state
+  // Schedule fuel flow based on limits (from GE)
+  void steadyState() {
+
+    TH1A = T1ACS / TSTD;
+
+    if ( switchDes == "DESIGN" ) {
+      XNDHP = XN25CS/ sqrt( TH1A );
+    }
+
+    // Calculate corrected speed
+    TH1A = T1ACS / TSTD;
+    PCNHRS = 100 * XN25CS / sqrt( TH1A )/ XNDHP;
+
+    // Read demand fan speed from PLA
+    PCNHR = PC_SKED( PLACS );
+
+    // Calculate error between demand fan speed mand sensed fan speed
+    EPCNHR = ( PCNHR - PCNHRS )/ 100.0;
+
+    // Check max corrected fan speed limit
+    EPCNHH = ( PCNHH - PCNHRS )/ 100;
+    if ( EPCNHR > EPCNHH ) {
+      EPCNHR = EPCNHH;
+    }
+
+    // Check max corrected fan speed as a function of physical speed
+    PCNHRH = PCNHH * XNHRD / sqrt( TH1A )/ XNDHP;
+    EPNHRH = ( PCNHRH - PCNHRS )/ 100;
+    if ( EPCNHR > EPNHRH ) {
+      EPCNHR = EPNHRH;
+    }
+
+    // Calculate error due to T41 max
+    ET41 = ( T41H - T41CS )/ T41H;
+
+    ERR1 = EPCNHR;
+    if ( EPCNHR > ET41 ) {
+      ERR1 = ET41;
+    }
+  }
+
+
+  // Discrete calcs (done once per time step)
+  int runDiscreteCalcs( real time, real nextCalcTime ) {
+
+    if ( abs ( nextCalcTime - execTime ) > .000001 ) {
+      return FALSE;
+    }
+
+    // Check steady-state limits
+    steadyState();
+
+    real step = min( abs( ERR1 ), .005 );
+    WFED =  ( 1 + ERR1 / abs ( ERR1 ) * step );
+
+    // Map data from control to engine
+    mapOut();
+
+    return TRUE;
+  }
+
+  // Schedule of comp speed vs power code
+  Table PC_SKED( real PL ) {
+    PL = { 25, 40, 50 }
+    PC_SKED = { 80, 90, 100 }
+  }
+
+  // Calculations performed after the cycle converges
+  void updateHistory( ) {
+
+    if ( abs ( time - execTime ) > .000001 ) {
+      return;
+    }
+
+    // Determine the next time this executes
+    execTime = execTime + dtime;
+
+    // Get the data from the engine to the control
+    mapIn();
+  }
+
+  // Intialize
+  void initializeHistory() {
+
+    execTime = time + dtime;
+    // Get the data from the engine to the control
+    mapIn();
+  }
+
+  // Tell the system at what time this thing needs to run
+  real nextExecTime( real currentNextTime ) {
+    return execTime;
+  }
+
+}
+

@@ -1,0 +1,15 @@
+cerr {
+  filename = "bug.out";
+}
+
+
+setThermoPackage("Janaf");
+
+Element Ambient Amb {
+  switchMode = "ALDTMN";
+  alt_in      = 0.;
+  dTs_in    = 0.;
+  MN_in       = .00;
+} // END Amb
+
+run();

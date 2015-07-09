@@ -1,0 +1,748 @@
+/******************************************************************************
+*   © Copyright 2003.  The U.S. Government, as Represented by the Administrator
+*     of the National Aeronautics and Space Administration (NASA).
+*   © Copyright 2008 - 2013.     The Ohio Aerospace Institute, on behalf of the NPSS(TM)
+*     Consortium.  All rights reserved.  Includes content licensed from the 
+*     U.S. Government, National Aeronautics and Space Administration under 
+*     United States Copyright Registration Numbers  V3503D364 and V3482D344.
+*******************************************************************************/
+
+/******************************************************************************
+*  NPSSTM software and related documentation is export controlled
+*  with an Export Control Classification Number(ECCN) of 9D991, controlled for
+*  Anti-Terrorism reasons, under U.S. Export Administration Regulations 15 CFR
+*  730-774. It may not be transferred to a country checked under anti-terrorism
+*  on the Commerce Country Chart structure or to foreign nationals of those
+*  countries in the U.S. or abroad without first obtaining a license from the
+*  Bureau of Industry and Security, United States Department of Commerce. 
+*  Violations are punishable by fine, imprisonment, or both.
+******************************************************************************/
+
+//
+// For further information contact support@wolverine-ventures.com
+//
+
+#ifndef __TURBINE__
+#define __TURBINE__
+
+#include <InterpIncludes.ncp>
+
+class TurbineTwo extends Element {
+
+//------------------------------------------------------------
+//     ******* DOCUMENTATION *******
+//------------------------------------------------------------
+
+  title = "";
+
+  description = "A " +isA() + " expands incoming flow to provide power to a shaft element.
+  The turbine element performs high-level turbine performance calculations.  The performance
+  is calculated in terms of efficiency and total-to-total pressure ratio.  This element is
+  usually used with a map subelement.";
+
+  usageNotes = isA() +
+  "
+- The turbine performance is determined by pressure ratio (PR) and efficiency (eff). If the
+S_map socket is empty then the performance is determined by setting pressure ratio and
+efficiency using PRdes and effDes during DESIGN and by setting PRbase and effBase during 
+OFFDESIGN.  If S_map has a subelement plugged into it then PRbase, effBase, and WpBase are 
+set by the S_map subelement, and PRdes = PRbase during DESIGN.  In any case, eff equals the 
+value input for effDes during DESIGN.
+
+- The S_map socket is setup such that it allows the subelement to only set effBase, PRbase, 
+and WpBase.  It does not make any assumptions about how the subelement performs its
+calculations, as long as the subelement ultimately sets effBase, PRbase, and WpBase.  If you
+have a map that does not return adiabatic efficiency (say, dT/T instead), then the subelement
+will have to use the map result to calculate efficiency so that effBase can be set by the
+subelement.
+
+- Audit factors are available to the user for adjusting the map values of efficiency, corrected
+weight flow, and pressure ratio.  The unadjusted values for efficiency, corrected weight flow,
+and pressure ratio are effBase, WpBase, and PRbase respectively. The values for effBase,
+WpBase, and PRbase are set when the S_map subelement is called.  After the audit factors are
+applied, resulting efficiency, corrected weight flow, and pressure ratio are eff, WcCalc, and
+PR, respectively. 
+
+- Audit factors are used when the switchAud Option Switch is set to AUDIT.  Audit factors are
+used as follows:
+
+    eff = s_effAud * effBase + a_effAud;
+    WpCalc = s_WpAud * WpBase + a_WpAud;
+    PR = s_PRaud * PRbase + a_PRbase;
+ 
+- Solver independents and dependents are usually contained in the turbine map subelement,
+which plugs into the S_map socket (see TurbinePRmap2).  The solver is often used to drive the 
+scaled map corrected weight flow, WpCalc (which includes audit factors, if they are used) to 
+equal the actual corrected turbine inlet flow, Wp.
+  
+- effPoly is an output only variable.  To input effPoly in design point set effDes as a solver
+independent and form a solver dependent to drive effPoly to the desired value.
+
+- The ShaftOutputPort (Sh_O) is used to share information between the turbine and the shaft
+element to which it is connected.  Mechanical speed is passed to the turbine from the shaft
+using Sh_O.Nmech.  The turbine rotational inertia is set directly in the ShaftOuputPort using
+Sh_O.inertia.  The turbine determines torque generated and passes this torque to the shaft
+via the mechanical port using Sh_O.trq.  
+ 
+- Any number of bleed input ports may be defined at run-time.  These ports allow the user to
+input a total pressure 'rise' fraction, and an effective pumping diameter.  The pressure
+fraction is input to specify at what point along the turbine the bleed flow enters.  The
+pumping diameter is used to determine a bleed pumping power due to the fact that the flow is
+entering from rotor and has some energy due to the tangential movement of the flow. See the
+User Guide section on 'Turbine Element Bleed Entry.'
+ 
+- To determine the effect of the bleed flow on the exit conditions, the bleeds are
+isentropically expanded to the exit pressure.  This allows an ideal enthalpy to be determined,
+which is transformed to an actual enthalpy using the efficiency calculated from the map.
+This actual enthalpy is then used in an energy balance with the primary stream to determine
+the actual exit conditions.
+   
+- The heat transfer calculations are performed after all the other turbine calculations are
+done, using variable Qhx.  This means that if heat transfer is being used, the exit
+temperature will not match the value indicated by the efficiency and temperature ratio.  The
+value for Qhx is set by the S_Qhx socket, which may be used in conjunction with the 
+ThermalMass subelement.  The ThermalMass subelement models heat transfer between the fluid 
+stream and a thermal mass.  See the ThermalMass subelement for more information in its usage.
+";
+
+  background = "";
+
+//------------------------------------------------------------
+//     ******* SETUP VARIABLES ********
+//------------------------------------------------------------
+
+  real a_effAud {
+    value = 0;  IOstatus = INACTIVE;  units = NONE;
+    description = "Audit factor adder applied to adiabatic efficiency";
+  }
+  real a_PRaud {
+    value = 0;  IOstatus = INACTIVE;  units = NONE;
+    description = "Audit factor adder applied to adiabatic efficiency base value, PRbase";
+  }
+  real a_WpAud {
+    value = 0;  IOstatus = INACTIVE;  units = "lbm*SQRT_R/(sec*psia)";
+    description = "Audit factor adder applied to corrected weight flow base value, WpBase";
+  }
+  real dHbldIdealSum {
+    value = 0;  IOstatus = OUTPUT;  units = BTU_PER_SEC;
+    description = "Sum of the ideal enthalpy changes for all the bleed flows";
+  }
+  real dhqT {
+    value = 0;  IOstatus = OUTPUT;  units = BTU_PER_LBM_R;
+    description = "Specific enthalpy change divided by inlet temperature";
+  }
+  real dHqT {
+    value = 0;  IOstatus = OUTPUT;  units = BTU_PER_SEC_R;
+    description = "Actual enthalpy change divided by inlet temperature";
+  }
+  real dht {
+    value = 0;  IOstatus = OUTPUT;  units = BTU_PER_LBM;
+    description = "Difference between specific enthalpy entering and leaving turbine.";
+  }
+  real eff {
+    value = 1;  IOstatus = OUTPUT;  units = NONE;
+    description = "Adiabatic efficiency.  Equals effDes during design.  Calculated using effBase, s_effAud, and a_effAud (if in AUDIT mode) during off-design";
+  }
+  real effBase {
+    value = 1;  IOstatus = OUTPUT;  units = NONE;
+    description = "Adiabatic efficiency, before audit factors are applied.  Calculated and set by S_map socket during off-design if S_map socket is filled.";
+  }
+  real effDes {
+    value = 1;  IOstatus = INPUT;  units = NONE;
+    description = "Adiabatic efficiency at cycle design point";
+  }
+  real effPoly {
+    value = 1;  IOstatus = OUTPUT;  units = NONE;
+    description = "Polytropic efficiency";
+  }
+  real HbldSum {
+    value = 0;  IOstatus = OUTPUT;  units = BTU_PER_SEC;
+    description = "Sum of the actual enthalpy changes for all the bleed flows";
+  }
+  real N {
+    value = 0;  IOstatus = OUTPUT;  units = RPM;
+    description = "Physical speed, equals Sh_O.Nmech";
+  }
+  real Ndes {
+    value = 0;  IOstatus = OUTPUT;  units = RPM;
+    description = "Design point physical speed";
+  }
+  real Np {
+    value = 0;  IOstatus = OUTPUT;  units = RPM_PER_SQRT_R;
+    description = "Corrected speed, N / sqrt(Fl_I.Tt)";
+  }
+  real NpDes {
+    value = 0;  IOstatus = OUTPUT;  units = RPM_PER_SQRT_R;
+    description = "Corrected speed at cycle design point";
+  }
+  real NpqNpDes {
+    value = 0;  IOstatus = OUTPUT;  units = RPM_PER_SQRT_R;
+    description = "Ratio of current corrected speed to design corrected speed, Np / NpDes";
+  }
+  real PR {
+    value = 0;  IOstatus = OUTPUT;  units = NONE;
+    description = "Total-to-total pressure ratio.  Equals PRdes during design.  Calculated using PRbase, s_PRaud, and a_PRaud (if in AUDIT mode) during off-design";
+  }
+  real PRbase {
+    value = 1;  IOstatus = INPUT;  units = NONE;
+    description = "Total-to-total pressure ratio, before application of component modifiers.  Set by S_map socket during off-design if S_map socket is filled.";
+  }
+  real PRdes {
+    value = 1;  IOstatus = INPUT;  units = NONE;
+    description = "Total-to-total pressure ratio at cycle design point";
+  }
+  real pwr {
+    value = 0;  IOstatus = OUTPUT;  units = HORSEPOWER;
+    description = "Total power supplied to the shaft (total power - bleed pumping power)";
+  }
+  real pwrBldSum {
+    value = 0;  IOstatus = OUTPUT;  units = HORSEPOWER;
+    description = "Turbine power due to expansion of the bleed flows";
+  }
+  real pwrExpand {
+    value = 0;  IOstatus = OUTPUT;  units = HORSEPOWER;
+    description = "Total power supplied by the turbine (before subtacting bleed pumping power)";
+  }
+  real pwrPumpBldSum {
+    value = 0;  IOstatus = OUTPUT;  units = HORSEPOWER;
+    description = "Power required to pump the bleed flow(s) out";
+  }
+  real Qhx {
+    value = 0;  IOstatus = INPUT;  units = BTU_PER_SEC;
+    description = "Heat transfer absorbed by (+) or returned from (-) metal mass.  Set by the S_Qhx if the socket is filled.";
+  }
+  real s_effAud {
+    value = 1;  IOstatus = INPUT;  units = NONE;
+    description = "Audit factor scalar applied to adiabatic efficiency base value, effBase";
+  }
+  real s_PRaud {
+    value = 1;  IOstatus = INPUT;  units = NONE;
+    description = "Audit factor scalar applied to pressure ratio base value, PRbase";
+  }
+  real s_WpAud {
+    value = 1;  IOstatus = INPUT;  units = NONE;
+    description = "Audit factor scalar applied to corrected weight flow base value, WpBase";
+  }
+  real TR {
+    value = 0;  IOstatus = OUTPUT;  units = NONE;
+    description = "Temperature ratio";
+  }
+  real TRdes {
+    value = 0;  IOstatus = OUTPUT;  units = NONE;
+    description = "Temperature ratio at cycle design point";
+  }
+  real trq {
+    value = 0;  IOstatus = OUTPUT;  units = FT_LBF;
+    description = "Torque supplied to the turbine shaft";
+  }
+  real WbldSum {
+    value = 0;  IOstatus = OUTPUT;  units = LBM_PER_SEC;
+    description = "Sum of the bleed weight flows";
+  }
+  real Wp {
+    value = 0;  IOstatus = OUTPUT;  units = "lbm*SQRT_R/(sec*psia)";
+    description = "Incoming corrected weight flow, Fl_I.W * sqrt(Fl_I.Tt) / Fl_I.Pt";
+  }
+  real WpBase {
+    value = 0;  IOstatus = OUTPUT;  units = "lbm*SQRT_R/(sec*psia)";
+    description = "Corrected flow, before audit factors are applied.  Set by S_map socket during off-design if S_map socket is filled.";
+  }
+  real WpCalc {
+    value = 0;  IOstatus = OUTPUT;  units = "lbm*SQRT_R/(sec*psia)";
+    description = "Corrected flow into turbine.  Equals WpDes during design.  Calculated using WcBase, s_WcAud, and a_WcAud (if in AUDIT mode) during off-design";
+  }
+  real WpDes {
+    value = 0;  IOstatus = OUTPUT;  units = "lbm*SQRT_R/(sec*psia)";
+    description = "Corrected weight flow at cycle design point";
+  }
+  real WpqWpDes {
+    value = 0;  IOstatus = OUTPUT;  units = NONE;
+    description = "Ratio of corrected weight flow to design corrected weight flow, Wp / WpDes";
+  }
+
+//------------------------------------------------------------
+//   ******* OPTION VARIABLE SETUP *******
+//------------------------------------------------------------
+
+  Option switchAud {
+    allowedValues = { "BASE", "AUDIT" } ;
+    description = "Determines if the audit factors are applied to effBase, WpBase, and PRbase values (s_effAud, a_effAud, s_WpAud, a_WpAud, s_PRaud, and a_PRaud)";
+    rewritableValues = FALSE;  // Enables converter optimization.
+  }
+
+  Option switchDes {
+    allowedValues = { DESIGN, OFFDESIGN } ;
+    description = "Determines if the element is in design or off-design mode";
+    rewritableValues = FALSE;
+  }
+
+//------------------------------------------------------------
+// ****** SETUP PORTS, FLOW STATIONS, SOCKETS, TABLES ********
+//------------------------------------------------------------
+
+// FLUID PORTS
+
+  FluidInputPort Fl_I {
+    description = "Primary incoming flow";
+  }
+
+  FluidOutputPort Fl_O {
+    description = "Primary exiting flow";
+  }
+
+// FUEL PORTS
+
+// BLEED PORTS
+  string bleedPortList[];
+  bleedPortList {
+	ptrType = "InterStageBleedInPort";
+	description = "List of the user-created InterStageBleedInPort objects";
+	internal = TRUE;  // maintained internal to class by postcreate()
+	IOstatus = OUTPUT;
+  }
+
+// THERMAL PORTS
+
+// MECHANICAL PORTS
+
+  ShaftOutputPort Sh_O {
+    description = "Mechanical connection to the shaft";
+  }
+
+// FLOW STATIONS
+
+  FlowStation Fl_Otemp {
+    description = "Temporary FlowStation used to calculate ideal and bleed conditions";
+  }
+
+// SOCKETS
+
+  Socket S_map {
+    allowedValues = { "PRbase", "WpBase", "effBase" };
+    description = "Socket to calculate turbine map performance";
+    socketType = TURBINE_MAP;
+  }
+
+  Socket S_Qhx {
+    allowedValues = { "Qhx" };
+    description = "Thermal storage socket";
+    socketType = "HEATTRANSFER";
+  }
+
+
+// TABLES
+
+
+//------------------------------------------------------------
+// ******* INTERNAL SOLVER SETUP *******
+//------------------------------------------------------------
+
+//------------------------------------------------------------
+//  ******  ADD SOLVER INDEPENDENTS & DEPENDENTS  ******
+//------------------------------------------------------------
+
+//------------------------------------------------------------
+// ******* VARIABLE CHANGED METHODOLOGY *******
+//------------------------------------------------------------
+  void variableChanged( string name, any oldVal ) {
+	
+	// if the value of switchDes or switchAud change...
+	if ( name == "switchDes" || name == "switchAud" ){
+		// If in design mode and the socket is filled, then PRbase is an input and PRdes is an output
+		if( switchDes == DESIGN && !S_map.isEmpty() ) {
+			PRbase.IOstatus = INPUT;
+			PRdes.IOstatus = OUTPUT;
+			WpBase.IOstatus  = OUTPUT;
+		}
+		else if ( switchDes == DESIGN && S_map.isEmpty() ) {
+			PRbase.IOstatus = OUTPUT;
+			PRdes.IOstatus = INPUT;
+			WpBase.IOstatus  = OUTPUT;
+		}
+		
+		// If in off-design mode and the S_map socket is filled, then the "base" variables are outputs
+		if( switchDes == OFFDESIGN && !S_map.isEmpty() ) {
+			effBase.IOstatus = OUTPUT;
+			PRbase.IOstatus  = OUTPUT;
+			WpBase.IOstatus  = OUTPUT;
+			PRdes.IOstatus = OUTPUT;
+		}
+		// If in off-design mode and the S_map socket is empy, then the "base" variables are inputs
+		else if( switchDes == OFFDESIGN && S_map.isEmpty() ) {
+			effBase.IOstatus = INPUT;
+			PRbase.IOstatus  = INPUT;
+			WpBase.IOstatus  = INPUT;
+		}
+		
+		// If in off-design and Audit mode, then the audit scalars and adders are inputs
+		if (switchDes == OFFDESIGN  &&  switchAud == "AUDIT" ) {
+			a_effAud.IOstatus = INPUT;
+			a_PRaud.IOstatus  = INPUT;
+			a_WpAud.IOstatus  = INPUT;
+			s_effAud.IOstatus = INPUT;
+			s_PRaud.IOstatus  = INPUT;
+			s_WpAud.IOstatus  = INPUT;
+		}
+		// Otherwise, audit scalars and adders are inactive
+		else {
+			a_effAud.IOstatus = INACTIVE;
+			a_PRaud.IOstatus = INACTIVE;
+			a_WpAud.IOstatus  = INACTIVE;
+			s_effAud.IOstatus = INACTIVE;
+			s_PRaud.IOstatus = INACTIVE;
+			s_WpAud.IOstatus  = INACTIVE;
+		}
+	} // end "if" block: ( name == "switchDes" || name == "switchAud" )
+  } // end variableChanged()
+  
+
+//------------------------------------------------------------
+//   ******* PERFORM ENGINEERING CALCULATIONS *******
+//------------------------------------------------------------
+  void calculate() {
+
+    //-----------------------------------------------------------	
+    // obtain inlet flow station variables	
+    //-----------------------------------------------------------
+    real TtIn = Fl_I.Tt;
+    real PtIn = Fl_I.Pt;
+    real Win = Fl_I.W;
+    real htIn = Fl_I.ht;
+    real Sin = Fl_I.s;
+	real RtIn = Fl_I.Rt;
+	
+	//-----------------------------------------------------------------------
+    // Copy inlet conditions to outlet port and temporary flow station
+    //-----------------------------------------------------------------------
+
+    Fl_O.copyFlow( "Fl_I" );
+    Fl_Otemp.copyFlow( "Fl_I" );
+	
+	//----------------------------------------------------------------
+    // Calculate flow reference temp and press ratios and calculate
+    // the corrected flow
+    //----------------------------------------------------------------
+	Wp = Win * sqrt(TtIn) / PtIn;
+	
+	// Save off Wp design point value
+	if ( switchDes == DESIGN ) {
+      WpDes = Wp;
+    }
+	
+	// Fraction of design flow
+    WpqWpDes = Wp / WpDes;
+
+    //------------------------------------------------------------
+    // Calculation of shaft corrected speed 
+    //------------------------------------------------------------
+    N = Sh_O.Nmech; // actual speed, rpm
+    Np = N / sqrt( TtIn ); // corrected speed
+	
+	// Save off N and Np design point values
+	if ( switchDes == DESIGN ) {
+      Ndes = N;
+      NpDes = Np;
+    }
+	
+	// Fractional and percent of design corrected speed
+	NpqNpDes = Np / NpDes; // fractional
+	//NpPct = Np / NpDes * 100; // percent
+
+/*
+	//-----------------------------------------------------------------
+	// Apply modifiers to weight flow
+	//-----------------------------------------------------------------
+	if ( switchAud == "AUDIT" ) {
+		WpIn = ( WpIn - a_WpAud )/ s_WpAud;
+	}
+*/
+	//-----------------------------------------------------------------------
+    // execute the map, if it exists
+    //-----------------------------------------------------------------------
+    if( !S_map.isEmpty() ) {
+		// Execute the S_map subelement.
+		// This should set effBase, PRbase, and WpBase
+         S_map.execute();
+    } 
+    else {
+		// If S_map is empty and in design mode, set the "base" values to the design values
+		if( switchDes == DESIGN ) {
+			effBase = effDes;
+			PRbase  = PRdes;
+			WpBase  = WpDes;
+		}
+    }
+	
+	// Save off PR design point value
+	if ( switchDes == DESIGN ) {
+      PRdes = PRbase;
+    }
+	//cout <<"PRbase " << PRbase << endl;
+	//----------------------------------------------------------------
+    // if we are in AUDIT mode then the user wishes to adjust
+    // the conditions based on input adders and scalars
+    //----------------------------------------------------------------
+    if( switchAud == "AUDIT" && switchDes == OFFDESIGN ) {
+
+		//fixme: add protection logic for eff audit factors in non-physical regions
+		eff = s_effAud * effBase + a_effAud;
+		PR = s_PRaud * PRbase + a_PRaud;
+		WpCalc = s_WpAud * WpBase + a_WpAud;
+    }
+	// Otherwise not in AUDIT mode so, eff, PR, and WcCalc match the "base" values
+	else {
+		eff = effBase;
+		PR = PRbase;
+		WpCalc = WpBase;
+	}
+	
+	//-----------------------------------------------------------------------
+    // compute turbine exit conditions (no bleed)
+    //-----------------------------------------------------------------------
+
+    //-----------------------------------------------------------------------
+    // Determine the ideal exit state based on the pressure ratio.
+    // Calculate the actual exit pressure, use it and the entrance
+    // entropy to set the ideal exit conditions.
+    //-----------------------------------------------------------------------
+    
+	// Ideal exit entropy
+	real SidealOut = Sin;
+	
+	// Actual exit pressure
+    real PtOut = PtIn / PR;
+	
+	// Ideal outlet conditions
+    Fl_Otemp.setTotalSP( SidealOut, PtOut );
+	
+	// Ideal outlet enthalpy
+    real  htIdealOut = Fl_Otemp.ht;
+
+    //--------------------------------------------------------------
+    // Efficiency is the driving value.
+    // Determine the actual outlet enthalpy (not including bleed flows
+	// or heat transfer).
+    // Use the enthalpy and the exit pressure to set
+    // the actual exit conditions and then calculate TR.
+    //--------------------------------------------------------------
+	real htOut;
+	
+	// Actual outlet enthalpy
+	htOut =  htIn - ( htIn - htIdealOut ) *  eff;
+	
+	// Set fluid outlet conditions
+    Fl_O.setTotal_hP( htOut, PtOut );
+
+	// Temperature ratio
+	TR = TtIn / Fl_O.Tt ;
+	
+    if( switchDes == DESIGN ) {
+		// Temperature ratio at cycle design point
+		TRdes = TR;
+    }
+	
+	//---------------------------------------------------------------------
+    // specific enthalpy change divided by inlet temperature (before bleeds)
+    //---------------------------------------------------------------------
+	dhqT = ( htIn - htOut )/ TtIn;
+	
+	//---------------------------------------------------------------------
+    // actual enthalpy change divided by inlet temperature (before bleeds)
+    //---------------------------------------------------------------------
+	dHqT = ( htIn - htOut ) * Win / TtIn;
+	
+	//---------------------------------------------------------------------
+    // compute polytropic efficiency
+    //---------------------------------------------------------------------
+    
+	// Actual outlet entropy
+	real Sout = Fl_O.s;
+	
+	// Term for polytropic efficiency calculation
+    real RtlogPR = RtIn * log( 1.0 / PR );
+	
+	// Polytropic efficiency
+    effPoly = ( RtlogPR + Sout - Sin ) / RtlogPR;
+
+	//--------------------------------------------------------------
+    // determine the overall power prior to bleed calculations
+    //--------------------------------------------------------------
+    pwr = Win * (  htIn - htOut ) * C_BTU_PER_SECtoHP;
+
+  
+	//real convert = C_HPtoFT_LBF_PER_SEC / C_BTUtoFT_LBF ;
+
+	//----------------------------------------------------------------------
+	// Apply bleed flow corrections on power and flow
+	//----------------------------------------------------------------------
+
+	//-----------------------------------------------------------------------
+    // loop through the bleed port list to get summation of bleed flow and 
+	// summation of bleed power
+    //-----------------------------------------------------------------------
+	
+	// Set bleed flow rate, enthalpy, power, and some other temporary variables
+	// back to zero (set in previous iteration) because the "for" loop below is 
+	// about to recalculate these values 
+	WbldSum = 0.0;
+	HbldSum = 0.0;
+	pwrPumpBldSum = 0.0;
+	dHbldIdealSum = 0. ;
+
+	real powerPumpb = 0.0 ;
+	real nd = 0.0;
+	real specificPower = 0.0;
+	real htemp = 0.0;
+	real ptemp = 0.0;
+	real powerCst;
+	
+	int i;
+ 
+	// start the loop
+    for(i=0; i<bleedPortList.entries(); ++i) {
+
+		//-----------------------------------------------------------------
+		// Determine the bleed pumping power required to pump this bleed
+		// out at this diameter
+		//-----------------------------------------------------------------
+		// powerPumpb = bleedPortList[i]->bleedPumpPower( Nmech, PtIn, PtOut );
+
+		nd = Sh_O.Nmech*bleedPortList[i] -> diameterPump;
+		powerCst = C_HPtoFT_LBF_PER_SEC * C_GRAVITY * 12.0 * 12.0 * 60.0 * 60.0 / PI / PI;
+		specificPower = abs( nd )* nd / powerCst;
+		htemp =  bleedPortList[i] -> getht() + specificPower / C_BTU_PER_SECtoHP;
+		ptemp = PtOut + bleedPortList[i] -> Pfract * (PtIn - PtOut);
+		powerPumpb =  bleedPortList[i] -> getw() * specificPower;
+		bleedPortList[i] -> setExitFlow();
+		bleedPortList[i] -> setBleedPumpPower(powerPumpb);
+
+		//-----------------------------------------------------------------
+		// Keep a running total of the bleed pumping power
+		//-----------------------------------------------------------------
+		pwrPumpBldSum = pwrPumpBldSum + powerPumpb;
+    
+		//-----------------------------------------------------------------
+		// Get the bleed flow conditions 
+		//-----------------------------------------------------------------
+      
+		Fl_Otemp.copyFlow( bleedPortList[i] -> getStation() ); 
+
+		Fl_Otemp.setTotal_hP(htemp, ptemp);
+      
+		real Wb = Fl_Otemp.W;
+		real htb = Fl_Otemp.ht;
+      
+		//-----------------------------------------------------------------
+		// Get the bleed flow conditions and keep a running total
+		// of bleed flow and total enthalpy
+		//-----------------------------------------------------------------
+		WbldSum = WbldSum + Wb ;
+		HbldSum = HbldSum + htb * Wb;
+
+		//-----------------------------------------------------------------
+		// Expand the bleed flow ideally to the turbine exit pressure
+		//-----------------------------------------------------------------
+		real Sbin = Fl_Otemp.s;	
+		Fl_Otemp.setTotalSP( Sbin, PtOut );
+
+		//-----------------------------------------------------------------
+		// Determine the ideal enthalpy change for this bleed flow
+		//-----------------------------------------------------------------
+		real htOutbi = Fl_Otemp.ht;
+		real dHbI = Wb * ( htb - htOutbi );
+
+		//-----------------------------------------------------------------
+		// Keep a running total of the ideal enthalpy change
+		//-----------------------------------------------------------------
+		dHbldIdealSum = dHbldIdealSum + dHbI;
+
+		//----------------------------------------------------------------
+		// Mix the bleed flow with the exit conditions
+		//----------------------------------------------------------------
+		Fl_O.add(  bleedPortList[i] -> getStation() ); 
+
+    }
+
+    //--------------------------------------------------------------------
+    // Calculate the power generated and available along with the torque
+	// supplied to the shaft
+    //--------------------------------------------------------------------
+    
+    //---------------------------------------------------------------------
+    // Determine the power due to the bleed flow expansion using the ideal
+    // enthalpy and the same efficiency used for the primary flow
+    //---------------------------------------------------------------------
+    pwrBldSum = dHbldIdealSum * eff * C_BTU_PER_SECtoHP;
+
+    //----------------------------------------------------------------------
+    // Determine total power due to enthalpy changes in the flow.
+    // Again, assume that the bleed flows are expanded at the same
+	// efficiency as the primary.
+    //----------------------------------------------------------------------
+    pwrExpand = ((( htIn - htIdealOut ) * Win + dHbldIdealSum ) * eff ) * C_BTU_PER_SECtoHP;
+
+    //----------------------------------------------------------------------
+    // Determine the power supplied to the shaft
+    // (overall power - power required to pump bleeds)
+    //----------------------------------------------------------------------
+    pwr = pwrExpand - pwrPumpBldSum;
+
+    //----------------------------------------------------------------------
+    // Determine the torque supplied to the shaft
+    //----------------------------------------------------------------------
+	trq =  C_HP_PER_RPMtoFT_LBF * pwr / N;
+    
+    //----------------------------------------------------------------------
+    // Pass torque to the shaft output port
+    //----------------------------------------------------------------------
+    Sh_O.trq = trq;
+  
+    //----------------------------------------------------------------------
+    // Calculate turbine exit specific enthalpy and flow
+    //----------------------------------------------------------------------
+    real Wout = Win + WbldSum;
+    htOut = ( htIn * Win + HbldSum - pwrExpand / C_BTU_PER_SECtoHP ) / Wout;
+    dht = htIn - htOut;
+
+    //----------------------------------------------------------------------
+    // Set the exit conditions (without heat transfer) in the exit port
+    //----------------------------------------------------------------------
+    Fl_O.W = Wout;
+
+    Fl_O.setTotal_hP( htOut, PtOut );  
+
+    //---------------------------------------------------------------------
+    // thermal storage calculations
+    //---------------------------------------------------------------------
+    if ( !S_Qhx.isEmpty() ) {
+		// Execute the S_Qhx socket if it exists.
+		// This should set the value for Qhx.
+		S_Qhx.execute();
+    }
+
+    //---------------------------------------------------------------------
+    // adjust the exit conditions for the thermal mass heat storage
+    //---------------------------------------------------------------------
+    htOut = Fl_O.ht - Qhx / Fl_O.W;
+	
+	// Set the actual outlet conditions
+    Fl_O.setTotal_hP( htOut, Fl_O.Pt );
+        
+  } // end calculate() function
+  
+
+  //------------------------------------------------------------------------
+  // Function allows for creation of interstage bleed ports and heat sinks
+  //------------------------------------------------------------------------
+  void postcreate( string name ){
+    if(name -> hasInterface("InterStageBleedInPort")) {
+      bleedPortList.append( name );
+    }
+  } // end postcreate function
+  
+} // end Turbine element class
+
+#ifdef __NPSSCONVERTER__
+_STD_C_INCLUDES += "\n#include <InterStageBleedInPort.H>";
+#endif
+

@@ -1,0 +1,36 @@
+HiBypassFan Model:
+
+This model is intended to run inside the Matlab NPSS S-function
+
+
+
+%%%%%%%%%%%%%%%
+   Startup
+%%%%%%%%%%%%%%%
+
+1) Open CMD window with NPSS Environment
+2) Navigate to Matlab path, execute matlab.exe
+3) Inside Matlab, navigate to HiBypassModel, add 'bin' and 'DLMComponents\nt' to path
+
+%%%%%%%%%%%%%%%
+   Running
+%%%%%%%%%%%%%%%
+
+1) Open fanjet_simulink.slx
+
+The input file is fanjet.run.
+
+You must include the paths to the DLMs and InterpIncludes.  
+
+Easy runnpss script way, assumes runnpss is in PATH:
+runnpss fanjet.run
+
+Explicit way on Linux:
+$NPSS_TOP/bin/npss.$NPSS_CONFIG -I$NPSS_TOP/InterpIncludes -I$NPSS_TOP/DLMComponents/$NPSS_CONFIG fanjet.run
+
+Explicit way on Windows:
+%NPSS_TOP%\bin\npss.nt -I%NPSS_TOP%\InterpIncludes -I%NPSS_TOP%\DLMComponents\nt fanjet.run
+
+
+The pageviewer output goes to viewOut, and the transient output goes to tout
+
